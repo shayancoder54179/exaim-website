@@ -17,16 +17,14 @@ export default function Footer() {
     {
       title: 'Product',
       links: [
-        { href: '/how-it-works', label: 'How It Works' },
         { href: '/pricing', label: 'Pricing' },
-        { href: '/contact', label: 'Register' },
+        { href: '/demo', label: 'Demo' },
       ],
     },
     {
       title: 'Company',
       links: [
         { href: '/about', label: 'About' },
-        { href: '/contact', label: 'Contact' },
       ],
     },
   ]

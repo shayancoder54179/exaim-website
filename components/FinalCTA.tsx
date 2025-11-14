@@ -25,31 +25,32 @@ export default function FinalCTA() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Final Vision
+            Get started with ExAIm today
           </h2>
           <p className="text-xl text-white/90 mb-6 max-w-2xl mx-auto">
-            Mission: Transform the student learning experience by empowering educators to deliver measurable outcomes.
+            Our vision is to transform the student learning experience by empowering educators to deliver measurable outcomes for all stakeholders.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-12">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
-                href="/contact"
+                href="/demo"
                 prefetch={true}
                 className="group px-8 py-4 bg-white text-primary-600 rounded-lg text-lg font-semibold hover:shadow-xl transition-all flex items-center gap-2"
               >
-                Register Now
+                Book a Demo
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
-            <motion.a
-              href="mailto:contact@exaim.ai"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-lg text-lg font-semibold hover:bg-white/20 transition-all flex items-center gap-2"
-            >
-              <Mail className="w-5 h-5" />
-              Contact Us
-            </motion.a>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                href="/demo"
+                prefetch={true}
+                className="group px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-lg text-lg font-semibold hover:bg-white/20 transition-all flex items-center gap-2"
+              >
+                Start Free Pilot
+                <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-white/80">
             <a href="https://www.exaim.ai" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2">

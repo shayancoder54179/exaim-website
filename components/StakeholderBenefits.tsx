@@ -7,40 +7,34 @@ import { User, School, GraduationCap, Users } from 'lucide-react'
 
 const stakeholders = [
   {
-    icon: GraduationCap,
-    title: 'Students',
-    benefits: [
-      'Tailored exam preparation',
-      'Independent, self-paced learning',
-    ],
-    color: 'from-green-500 to-green-600',
-  },
-  {
     icon: User,
     title: 'Teachers',
     benefits: [
-      'Assign homework, quizzes, tests, and mock exams',
-      'Track progress with ease',
-      'Identify struggling students',
+      'Assign homework, classwork, assessments, and mocks — with automated marking and easy-to-read analytics.',
     ],
     color: 'from-blue-500 to-blue-600',
+  },
+  {
+    icon: GraduationCap,
+    title: 'Students',
+    benefits: [
+      'Practise independently with simulated exam conditions and receive instant, personalised feedback.',
+    ],
+    color: 'from-green-500 to-green-600',
   },
   {
     icon: Users,
     title: 'Parents',
     benefits: [
-      'Better visibility into student improvement',
-      'Transparent analytics',
+      'Track student performance and monitor progress transparently.',
     ],
     color: 'from-orange-500 to-orange-600',
   },
   {
     icon: School,
-    title: 'Schools',
+    title: 'Schools & Leadership Teams',
     benefits: [
-      'Digital transformation',
-      'Data-driven decision-making',
-      'Holistic school-wide progress tracking',
+      'Access real-time, data-driven insights to support digital transformation and improve outcomes at scale.',
     ],
     color: 'from-purple-500 to-purple-600',
   },
@@ -60,11 +54,8 @@ export default function StakeholderBenefits() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Who ExAIm Serves & How
+            Powering personalised exam preparation for an entire school ecosystem
           </h2>
-          <p className="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
-            ExAIm impacts all stakeholders in the school ecosystem.
-          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">

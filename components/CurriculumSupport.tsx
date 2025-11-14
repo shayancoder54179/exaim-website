@@ -5,7 +5,7 @@ import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { Check } from 'lucide-react'
 
-type Subject = 'MATHEMATICS' | 'ECONOMICS' | 'PSYCHOLOGY' | 'ENGLISH' | 'COMPUTER SCIENCE' | 'GEOGRAPHY' | 'SCIENCE' | 'BUSINESS' | 'HISTORY'
+type Subject = 'MATHEMATICS' | 'ENGLISH' | 'BIOLOGY' | 'CHEMISTRY' | 'PHYSICS' | 'ECONOMICS' | 'BUSINESS' | 'PSYCHOLOGY' | 'GEOGRAPHY' | 'HISTORY' | 'COMPUTER SCIENCE'
 
 const curricula: {
   british: {
@@ -24,16 +24,19 @@ const curricula: {
   british: {
     qualifications: ['GCSE', 'A-Level'],
     boards: ['OCR', 'EDEXCEL', 'AQA'],
-    subjects: ['MATHEMATICS', 'ENGLISH', 'SCIENCE', 'COMPUTER SCIENCE', 'ECONOMICS', 'BUSINESS'],
-    comingSoon: ['PSYCHOLOGY', 'GEOGRAPHY', 'HISTORY'],
+    subjects: ['MATHEMATICS', 'ENGLISH', 'BIOLOGY', 'CHEMISTRY', 'PHYSICS', 'ECONOMICS', 'BUSINESS', 'PSYCHOLOGY', 'GEOGRAPHY', 'HISTORY', 'COMPUTER SCIENCE'],
+    comingSoon: [],
   },
   ib: {
     qualifications: ['MYP', 'DP'],
     boards: [],
-    subjects: ['MATHEMATICS', 'ENGLISH', 'SCIENCE', 'COMPUTER SCIENCE', 'ECONOMICS', 'BUSINESS'],
-    comingSoon: ['PSYCHOLOGY', 'GEOGRAPHY', 'HISTORY'],
+    subjects: [],
+    comingSoon: ['MATHEMATICS', 'ENGLISH', 'BIOLOGY', 'CHEMISTRY', 'PHYSICS', 'ECONOMICS', 'BUSINESS', 'PSYCHOLOGY', 'GEOGRAPHY', 'HISTORY', 'COMPUTER SCIENCE'],
   },
 }
+
+// Subjects list from plan
+const allSubjects = ['Mathematics', 'English', 'Biology', 'Chemistry', 'Physics', 'Economics', 'Business', 'Psychology', 'Geography', 'History', 'Computer Science']
 
 export default function CurriculumSupport() {
   const [selectedCurriculum, setSelectedCurriculum] = useState<'british' | 'ib'>('british')
@@ -50,10 +53,10 @@ export default function CurriculumSupport() {
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Curriculum & Subject Coverage
+            Built for every curriculum.
           </h2>
           <p className="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
-            ExAIm supports ANY school following ANY board, not limited to specific regions.
+            ExAIm intelligently adapts to a wide range of international curriculums, exam formats, and learning objectives.
           </p>
         </motion.div>
 
@@ -96,15 +99,22 @@ export default function CurriculumSupport() {
           <div className="mb-8">
             <h3 className="text-xl font-semibold mb-4 text-gray-900">Qualifications</h3>
             <div className="flex flex-wrap gap-3">
-              {curricula[selectedCurriculum].qualifications.map((qual) => (
-                <motion.span
-                  key={qual}
-                  whileHover={{ scale: 1.05 }}
-                  className="px-4 py-2 bg-primary-100 text-primary-700 rounded-lg font-medium"
-                >
-                  {qual}
-                </motion.span>
-              ))}
+              {curricula[selectedCurriculum].qualifications.map((qual) => {
+                const isComingSoon = selectedCurriculum === 'ib'
+                return (
+                  <motion.span
+                    key={qual}
+                    whileHover={{ scale: 1.05 }}
+                    className={`px-4 py-2 rounded-lg font-medium ${
+                      isComingSoon
+                        ? 'bg-gray-100 text-gray-500 border-2 border-gray-200'
+                        : 'bg-primary-100 text-primary-700'
+                    }`}
+                  >
+                    {qual} {isComingSoon && <span className="text-xs ml-1">(Coming Soon)</span>}
+                  </motion.span>
+                )
+              })}
             </div>
           </div>
 

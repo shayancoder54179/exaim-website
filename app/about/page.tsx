@@ -11,11 +11,11 @@ const Footer = dynamic(() => import('@/components/Footer'), {
 })
 
 export const metadata: Metadata = {
-  title: 'About Us - ExAIm | Founders & Team',
-  description: 'Learn about ExAIm founders, our team, and our mission to transform student learning outcomes.',
+  title: 'About Us - ExAIm | Our Story',
+  description: 'Born in the classroom. Built for the world. Learn about ExAIm\'s origin story and our mission to transform exam preparation.',
   openGraph: {
     title: 'About Us - ExAIm',
-    description: 'Meet the founders and learn about our mission to empower educators.',
+    description: 'Our story: from the classroom to the world.',
   },
 }
 
@@ -24,6 +24,18 @@ export default function AboutPage() {
     <main className="min-h-screen">
       <ScrollAnimations />
       <Navbar />
+      <section className="pt-32 pb-0 bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-0">
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+              Born in the classroom. Built for the world.
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              ExAIm was created by the founders of Improve ME Institute, an award-winning after-school centre in the UAE with over 1,000 students and 40 tutors. After years of witnessing the challenges teachers and students face in exam preparation, ExAIm was built to make exam excellence accessible, efficient, and data-driven.
+            </p>
+          </div>
+        </div>
+      </section>
       <FoundersTeam />
       <Footer />
     </main>

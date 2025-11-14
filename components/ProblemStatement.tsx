@@ -9,15 +9,15 @@ const problems = [
   {
     icon: Puzzle,
     title: 'Disconnected Tools',
-    description: 'No unified system to manage assignments, grading, feedback, and analytics',
+    description: 'Assignments, feedback, grading, and analytics sit in separate systems — creating unnecessary friction for teachers and leaders.',
     color: 'text-red-500',
     bgColor: 'bg-red-50',
     borderColor: 'border-red-200',
   },
   {
     icon: User,
-    title: 'Lack of Personalised Learning',
-    description: 'Teachers cannot give tailored support due to heavy admin workload',
+    title: 'Limited Personalised Learning',
+    description: 'Admin overload reduces time for individualised support and targeted intervention.',
     color: 'text-orange-500',
     bgColor: 'bg-orange-50',
     borderColor: 'border-orange-200',
@@ -25,7 +25,7 @@ const problems = [
   {
     icon: TrendingDown,
     title: 'Subpar Academic Outcomes',
-    description: 'Students are not tested frequently enough in preparation for critical examinations',
+    description: 'Students are not tested frequently enough under real exam conditions, affecting readiness for GCSE, A-Level, and IB exam performance.',
     color: 'text-yellow-500',
     bgColor: 'bg-yellow-50',
     borderColor: 'border-yellow-200',
@@ -46,9 +46,11 @@ export default function ProblemStatement() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Traditional teaching approaches consume{' '}
-            <span className="text-red-600">60% of teachers' time</span>
+            Valuable teaching time is being lost to admin, not learning.
           </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-6">
+            Traditional teaching approaches consume up to 60% of a teacher's time. With disconnected tools, heavy marking loads, and limited opportunities for personalised feedback, students are often underprepared for high-stakes exams.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">

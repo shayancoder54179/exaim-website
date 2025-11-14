@@ -3,18 +3,26 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { Clock, FileText, MessageSquare, BarChart3 } from 'lucide-react'
+import { Clock, MessageSquare } from 'lucide-react'
 
 const steps = [
   {
     icon: Clock,
     title: 'Simulated Exam Conditions',
-    description: 'Includes open-ended responses, essays, long problem-solving questions, and timed exam-style practice',
+    items: [
+      'Timed exercises',
+      'Open-ended responses (essays, long-form answers, problem-solving)',
+      'Past-paper style questions and structure',
+    ],
   },
   {
     icon: MessageSquare,
-    title: 'Personalised Feedback',
-    description: 'Board-specific examiner-level feedback with deep analytics to identify weak areas',
+    title: 'Personalised Examiner-Level Feedback',
+    items: [
+      'AI trained on board-specific mark schemes',
+      'Detailed feedback explaining reasoning',
+      'Data that pinpoints exactly where students struggle',
+    ],
   },
 ]
 
@@ -32,7 +40,7 @@ export default function Methodology() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            How ExAIm Improves Student Attainment
+            A proven methodology to improve student attainment
           </h2>
         </motion.div>
 
@@ -51,10 +59,17 @@ export default function Methodology() {
               </div>
               <div className="relative z-10">
                 <step.icon className="w-12 h-12 text-primary-600 mb-4" />
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
                   {step.title}
                 </h3>
-                <p className="text-gray-600">{step.description}</p>
+                <ul className="space-y-2">
+                  {step.items.map((item, i) => (
+                    <li key={i} className="text-gray-600 flex items-start">
+                      <span className="text-primary-600 mr-2 font-bold">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </motion.div>
           ))}

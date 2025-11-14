@@ -3,25 +3,25 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { Sparkles, Zap, Target } from 'lucide-react'
+import { Sparkles, Zap, Shield } from 'lucide-react'
 
 const features = [
   {
     icon: Sparkles,
-    title: 'AI-Powered',
-    desc: 'Smart automation for assessments',
+    title: 'Automated',
+    desc: 'Examiner-trained AI grading and feedback significantly reduce marking time.',
     gradient: 'from-purple-500 to-pink-500',
   },
   {
     icon: Zap,
-    title: 'Time-Saving',
-    desc: 'Reduce admin workload by 60%',
+    title: 'Versatile',
+    desc: 'Built for any curriculum, qualification, and subject — including GCSE, A-Level, MYP, and more.',
     gradient: 'from-blue-500 to-cyan-500',
   },
   {
-    icon: Target,
-    title: 'Outcome-Focused',
-    desc: 'Measurable learning improvements',
+    icon: Shield,
+    title: 'Compliant',
+    desc: 'Fully aligned with GDPR and ICO standards, with strict data-privacy controls.',
     gradient: 'from-green-500 to-emerald-500',
   },
 ]
@@ -40,13 +40,10 @@ export default function SolutionOverview() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            ExAIm as an All-in-One Solution
+            An all-in-one AI-powered exam preparation platform
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            ExAIm is built by educators, offering a unified platform for assessment planning, assessment delivery, assessment review, and AI-powered automated feedback & analytics.
-          </p>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-            ExAIm gives instant feedback, correct vs incorrect breakdown, and mark allocation—demonstrating smart automation aligned with curriculum standards.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            ExAIm brings together exam creation, simulated assessment delivery, automated marking, analytics, and personalised feedback — all in a single, easy-to-use system.
           </p>
         </motion.div>
 

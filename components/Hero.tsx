@@ -87,7 +87,7 @@ export default function Hero() {
   ]
 
   // Split headline into words for stagger animation
-  const headlineWords = "Improving Student Attainment with".split(' ')
+  const headlineWords = "Improve student attainment with AI-powered exam preparation".split(' ')
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary-50 via-white to-secondary-50 pt-20">
@@ -203,41 +203,30 @@ export default function Hero() {
             initial="hidden"
             animate={mounted ? "visible" : "hidden"}
           >
-            {headlineWords.map((word, index) => (
-              <motion.span
-                key={index}
-                variants={textVariants}
-                className="inline-block mr-2"
-              >
-                {word}
-              </motion.span>
-            ))}
-            {' '}
-            <motion.span
-              variants={textVariants}
-              className="gradient-text text-shimmer inline-block"
-              animate={{
-                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-              whileHover={{
-                scale: 1.05,
-                transition: { type: "spring", stiffness: 400, damping: 10 }
-              }}
-            >
-              AI-Powered
-            </motion.span>
-            {' '}
-            <motion.span
-              variants={textVariants}
-              className="inline-block"
-            >
-              Exam Preparation
-            </motion.span>
+            {headlineWords.map((word, index) => {
+              const isAIPowered = word.toLowerCase() === 'ai-powered'
+              return (
+                <motion.span
+                  key={index}
+                  variants={textVariants}
+                  className={`inline-block mr-2 ${isAIPowered ? 'gradient-text text-shimmer' : ''}`}
+                  animate={isAIPowered ? {
+                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                  } : {}}
+                  transition={isAIPowered ? {
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "linear"
+                  } : {}}
+                  whileHover={isAIPowered ? {
+                    scale: 1.05,
+                    transition: { type: "spring", stiffness: 400, damping: 10 }
+                  } : {}}
+                >
+                  {word}
+                </motion.span>
+              )
+            })}
           </motion.h1>
 
           <motion.p
@@ -246,7 +235,7 @@ export default function Hero() {
             animate={mounted ? "visible" : "hidden"}
             className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto"
           >
-            ExAIm is an AI-powered exam preparation platform designed to improve student learning outcomes by giving schools a smarter way to plan, assign, grade, and analyse assessments.
+            ExAIm uses simulated exam conditions, automated marking, and personalised examiner-level feedback to help every student achieve better results — while reducing teacher workload.
           </motion.p>
 
           {/* Enhanced CTA Buttons with Spring Animations */}
@@ -257,7 +246,7 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
           >
             <motion.a
-              href="/contact"
+              href="/demo"
               variants={itemVariants}
               whileHover={{
                 scale: 1.05,
@@ -279,7 +268,7 @@ export default function Hero() {
                 style={{ borderRadius: '50%', x: '-50%', y: '-50%' }}
               />
               <span className="relative z-10 flex items-center gap-2">
-                Register Now
+                Book a Demo
                 <motion.div
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
@@ -290,7 +279,7 @@ export default function Hero() {
             </motion.a>
             
             <motion.a
-              href="/how-it-works"
+              href="/demo"
               variants={itemVariants}
               whileHover={{
                 scale: 1.05,
@@ -308,8 +297,23 @@ export default function Hero() {
                 className="absolute inset-0 bg-gradient-to-r from-primary-50 to-secondary-50 opacity-0 group-hover:opacity-100"
                 transition={{ duration: 0.3 }}
               />
-              <span className="relative z-10">How It Works</span>
+              <span className="relative z-10">Start Your 30-Day Free Pilot</span>
             </motion.a>
+          </motion.div>
+
+          {/* Badge Row */}
+          <motion.div
+            variants={itemVariants}
+            initial="hidden"
+            animate={mounted ? "visible" : "hidden"}
+            className="mt-12 mb-8"
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="inline-block bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full text-gray-700 font-medium shadow-md"
+            >
+              Trusted by 5,000+ students across 20 schools worldwide.
+            </motion.div>
           </motion.div>
 
           {/* Enhanced Stats with Stagger Animation */}
@@ -317,7 +321,7 @@ export default function Hero() {
             variants={containerVariants}
             initial="hidden"
             animate={mounted ? "visible" : "hidden"}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto mt-16"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto mt-8"
           >
             {stats.map((stat, index) => (
               <motion.div

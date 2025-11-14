@@ -9,22 +9,22 @@ const workflow = [
   {
     icon: FilePlus,
     title: 'Assign',
-    description: 'Use pre-loaded exams or create custom assessment tasks',
+    description: 'Choose from a growing database of preloaded exams or build your own.',
   },
   {
     icon: MessageSquare,
     title: 'Feedback',
-    description: 'AI-based marking aligned with board mark schemes',
+    description: 'Automated grading aligned with official mark schemes saves hours per week.',
   },
   {
     icon: BarChart,
     title: 'Analyse',
-    description: 'Track class-wide performance and identify learning gaps',
+    description: 'View class-wide and individual insights with weak-area identification.',
   },
   {
     icon: Target,
-    title: 'Refine Teaching',
-    description: 'Use data insights to target interventions and improve outcomes',
+    title: 'Refine',
+    description: 'Use data-driven strategies to close knowledge gaps and personalise teaching.',
   },
 ]
 
@@ -33,7 +33,7 @@ export default function HowItWorks() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="how-it-works" ref={ref} className="pt-[150px] pb-20 bg-gradient-to-br from-gray-50 to-primary-50">
+    <section id="how-it-works" ref={ref} className="py-20 bg-gradient-to-br from-gray-50 to-primary-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -42,11 +42,8 @@ export default function HowItWorks() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Teacher Workflow on ExAIm
+            Designed to streamline teaching and accelerate learning
           </h2>
-          <p className="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
-            A continuous teacher improvement cycle powered by AI.
-          </p>
         </motion.div>
 
         <div className="relative">

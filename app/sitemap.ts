@@ -9,13 +9,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: 'https://www.exaim.ai/how-it-works',
+      url: 'https://www.exaim.ai/pricing',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: 'https://www.exaim.ai/pricing',
+      url: 'https://www.exaim.ai/demo',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
@@ -25,12 +25,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
-    },
-    {
-      url: 'https://www.exaim.ai/contact',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
     },
   ]
 }

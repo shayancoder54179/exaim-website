@@ -33,9 +33,9 @@ const plans = [
 ]
 
 const benefits = [
-  'Pilot Test — 30-day trial, no commitment',
-  'Onboarding — Setup + staff training',
-  'Subscribe — Immediate full access',
+  'Pilot Test: 30-day commitment-free trial',
+  'Onboarding: Institution setup and teacher training',
+  'Subscribe: Full access for the academic year',
 ]
 
 export default function Pricing() {
@@ -43,23 +43,8 @@ export default function Pricing() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="pricing" ref={ref} className="pt-[150px] pb-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Pricing Structure
-          </h2>
-          <p className="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
-            Per Student, Per Academic Year
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 pt-8">
+    <div ref={ref}>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-8">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
@@ -72,8 +57,8 @@ export default function Pricing() {
                 rotateY: 5,
                 z: 50
               }}
-              className={`relative bg-white rounded-2xl p-8 shadow-lg overflow-visible group ${
-                plan.popular ? 'ring-2 ring-primary-600 scale-105 pulse-glow' : ''
+              className={`relative bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow overflow-visible group ${
+                plan.popular ? 'ring-2 ring-primary-600 md:scale-105 pulse-glow' : ''
               }`}
             >
               {/* Animated background gradient */}
@@ -107,24 +92,24 @@ export default function Pricing() {
               )}
               
               <div className="relative z-10 text-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
                   {plan.name}
                 </h3>
                 <motion.div 
                   className="flex items-baseline justify-center gap-2 mb-2"
-                  whileHover={{ scale: 1.1 }}
+                  whileHover={{ scale: 1.05 }}
                 >
-                  <span className="text-5xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
+                  <span className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
                     {plan.price}
                   </span>
                 </motion.div>
-                <p className="text-gray-600">{plan.period}</p>
+                <p className="text-gray-600 text-sm md:text-base">{plan.period}</p>
                 {plan.subjects > 1 && (
-                  <p className="text-sm text-gray-500 mt-2">({plan.subjects} subjects)</p>
+                  <p className="text-xs md:text-sm text-gray-500 mt-1">({plan.subjects} subjects)</p>
                 )}
               </div>
               
-              <ul className="space-y-3 mb-6 relative z-10">
+              <ul className="space-y-2.5 mb-6 relative z-10">
                 {plan.features.map((feature, i) => (
                   <motion.li
                     key={i}
@@ -139,7 +124,7 @@ export default function Pricing() {
                     >
                       <Check className="w-5 h-5 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
                     </motion.div>
-                    <span className="text-gray-700 group-hover/item:text-primary-600 transition-colors">
+                    <span className="text-gray-700 text-sm md:text-base group-hover/item:text-primary-600 transition-colors">
                       {feature}
                     </span>
                   </motion.li>
@@ -163,30 +148,29 @@ export default function Pricing() {
               </motion.button>
             </motion.div>
           ))}
-        </div>
-
-        {/* Benefits */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl p-8 text-white"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {benefits.map((benefit, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.05 }}
-                className="text-center"
-              >
-                <div className="text-3xl font-bold mb-2">{index + 1}</div>
-                <p className="text-lg">{benefit}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
-    </section>
+
+      {/* Benefits */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl p-8 md:p-10 text-white"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {benefits.map((benefit, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              className="text-center"
+            >
+              <div className="text-4xl font-bold mb-3">{index + 1}</div>
+              <p className="text-lg leading-relaxed">{benefit}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </div>
   )
 }
 

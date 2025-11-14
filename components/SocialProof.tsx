@@ -10,15 +10,15 @@ const testimonials = [
   {
     name: 'Steve Porter',
     role: 'Head of Business & Economics',
-    school: '',
-    quote: 'Significantly enhanced my teaching process.',
+    school: 'Tanglin Trust Singapore',
+    quote: 'Significantly enhanced my teaching process. Excited to continue using it.',
     logo: '',
   },
   {
     name: 'Vanessa North-Panting',
     role: 'Head of Digital Learning',
-    school: '',
-    quote: 'Instant feedback for students is a game-changer.',
+    school: 'Charterhouse',
+    quote: 'The feature that allows students to answer questions and receive instant feedback is a game-changer.',
     logo: '',
   },
 ]
@@ -60,12 +60,9 @@ export default function SocialProof() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="inline-block bg-gradient-to-r from-primary-600 to-secondary-600 text-white px-8 py-4 rounded-full text-2xl font-bold mb-8 shadow-lg"
-          >
-            5,000 users across 20 globally renowned schools
-          </motion.div>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            5,000+ students across 20 globally recognised schools use ExAIm
+          </h2>
         </motion.div>
 
         {/* Testimonials Carousel */}
@@ -98,6 +95,11 @@ export default function SocialProof() {
                   <div className="text-gray-600">
                     {testimonials[currentTestimonial].role}
                   </div>
+                  {testimonials[currentTestimonial].school && (
+                    <div className="text-gray-500 text-sm mt-1">
+                      {testimonials[currentTestimonial].school}
+                    </div>
+                  )}
                 </div>
                 <div className="flex gap-2">
                   <motion.button
