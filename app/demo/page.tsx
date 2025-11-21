@@ -41,9 +41,9 @@ export default function DemoPage() {
     <main className="min-h-screen">
       <ScrollAnimations />
       <Navbar />
-      <section className="pt-32 pb-16 md:pb-20 bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+      <section className="section-padding-lg pt-32 md:pt-40 lg:pt-44 bg-gradient-to-br from-primary-50 via-white to-secondary-50">
         <div className="container-wrapper">
-          <div className="text-center mb-12 md:mb-16">
+          <div className="text-center mb-12 md:mb-16 lg:mb-20">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
               See ExAIm in Action
             </h1>
@@ -53,7 +53,7 @@ export default function DemoPage() {
           </div>
 
           {/* TODO: Product explainer video - Replace placeholder with actual video */}
-          <div className="bg-white rounded-xl p-6 md:p-8 lg:p-12 shadow-xl mb-12">
+          <div className="bg-white rounded-xl p-6 md:p-8 lg:p-10 shadow-xl mb-12 md:mb-16">
             <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center mb-8">
               <div className="text-center">
                 <Play className="w-20 h-20 text-primary-600 mx-auto mb-4" />
@@ -66,7 +66,7 @@ export default function DemoPage() {
           {/* TODO: Motion GIFs - Add UI demo GIFs showing product features */}
 
           {/* Benefits */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mb-12 md:mb-16">
             {[
               'Reduce marking time by up to 60%',
               'Improve student exam readiness',
@@ -84,9 +84,9 @@ export default function DemoPage() {
           <DemoBookingForm />
 
           {/* FAQs */}
-          <div className="bg-white rounded-xl p-6 md:p-8 lg:p-12 shadow-xl">
+          <div className="bg-white rounded-xl p-6 md:p-8 lg:p-10 shadow-xl">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
               {faqs.map((faq, index) => (
                 <div key={index} className="border-b border-gray-200 pb-6 last:border-0">
                   <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">{faq.question}</h3>

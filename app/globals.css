@@ -34,9 +34,19 @@
     text-wrap: balance;
   }
   
-  /* Consistent section padding */
+  /* Consistent section padding - Standard sections */
   .section-padding {
-    @apply py-16 md:py-20 lg:py-24;
+    @apply py-12 md:py-16 lg:py-24;
+  }
+  
+  /* Large section padding - Hero & major breaks */
+  .section-padding-lg {
+    @apply py-16 md:py-20 lg:py-28;
+  }
+  
+  /* Small section padding - Related/tight sections */
+  .section-padding-sm {
+    @apply py-8 md:py-12 lg:py-16;
   }
   
   /* Consistent container padding */
@@ -46,7 +56,30 @@
   
   /* Consistent container wrapper */
   .container-wrapper {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Consistent content gaps for grids and flex containers */
+  .content-gap {
+    @apply gap-4 md:gap-6 lg:gap-8;
+  }
+  
+  /* Consistent section gaps */
+  .section-gap {
+    @apply gap-4 md:gap-6;
+  }
+  
+  /* Consistent text spacing for typography */
+  .text-spacing {
+    @apply mb-4 md:mb-6;
+  }
+  
+  .text-spacing-sm {
+    @apply mb-3 md:mb-4;
+  }
+  
+  .text-spacing-lg {
+    @apply mb-6 md:mb-8;
   }
   
   .gradient-mesh {

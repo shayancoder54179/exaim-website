@@ -51,14 +51,14 @@ export default function StakeholderBenefits() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-12 md:mb-16 lg:mb-20"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
             Powering personalised exam preparation for an entire school ecosystem
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {stakeholders.map((stakeholder, index) => (
             <motion.div
               key={index}
@@ -93,17 +93,17 @@ export default function StakeholderBenefits() {
                 />
                 <stakeholder.icon className="w-8 h-8 text-white relative z-10" />
               </motion.div>
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 relative z-10 group-hover:text-primary-600 transition-colors">
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4 relative z-10 group-hover:text-primary-600 transition-colors">
                 {stakeholder.title}
               </h3>
-              <ul className="space-y-3 relative z-10">
+              <ul className="space-y-4 md:space-y-6 relative z-10">
                 {stakeholder.benefits.map((benefit, i) => (
                   <motion.li
                     key={i}
                     initial={{ opacity: 0, x: -20 }}
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ delay: index * 0.1 + i * 0.1 }}
-                    className="text-gray-700 flex items-start group/item"
+                    className="text-gray-700 flex items-start group/item leading-relaxed"
                   >
                     <motion.span
                       animate={{ scale: [1, 1.2, 1] }}

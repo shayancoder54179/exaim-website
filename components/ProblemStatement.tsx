@@ -37,35 +37,35 @@ export default function ProblemStatement() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="problems" ref={ref} className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="problems" ref={ref} className="section-padding bg-gray-50">
+      <div className="container-wrapper">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16 lg:mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
             Valuable teaching time is being lost to admin, not learning.
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-6">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Traditional teaching approaches consume up to 60% of a teacher's time. With disconnected tools, heavy marking loads, and limited opportunities for personalised feedback, students are often underprepared for high-stakes exams.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           {problems.map((problem, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className={`${problem.bgColor} rounded-2xl p-6 md:p-8 hover:shadow-xl transition-all cursor-pointer group border-2 ${problem.borderColor} hover-lift`}
+              className={`${problem.bgColor} rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all cursor-pointer group border-2 ${problem.borderColor} hover-lift`}
             >
               <div className={`${problem.color} mb-4`}>
                 <problem.icon className="w-12 h-12 group-hover:scale-110 transition-transform" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">
+              <h3 className="text-2xl font-bold text-gray-900 mb-3 md:mb-4">
                 {problem.title}
               </h3>
               <p className="text-gray-700 leading-relaxed">{problem.description}</p>

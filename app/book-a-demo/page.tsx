@@ -23,9 +23,9 @@ export default function BookADemoPage() {
     <main className="min-h-screen">
       <ScrollAnimations />
       <Navbar />
-      <section className="pt-32 pb-16 md:pb-20 bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+      <section className="section-padding-lg pt-32 md:pt-40 lg:pt-44 bg-gradient-to-br from-primary-50 via-white to-secondary-50">
         <div className="container-wrapper">
-          <div className="text-center mb-12 md:mb-16">
+          <div className="text-center mb-12 md:mb-16 lg:mb-20">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
               Book a Demo
             </h1>
@@ -38,11 +38,11 @@ export default function BookADemoPage() {
           <DemoBookingForm />
 
           {/* Contact Details */}
-          <div className="bg-white rounded-xl p-6 md:p-8 lg:p-12 shadow-xl mt-12">
+          <div className="bg-white rounded-xl p-6 md:p-8 lg:p-10 shadow-xl mt-12 md:mt-16">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
               Get in Touch
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-2xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10 max-w-2xl mx-auto">
               <div className="text-center">
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-primary-100 rounded-full mb-4">
                   <Mail className="w-6 h-6 text-primary-600" />

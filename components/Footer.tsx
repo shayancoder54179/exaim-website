@@ -17,13 +17,24 @@ export default function Footer() {
     {
       title: 'Product',
       links: [
-        { href: '/demo', label: 'See ExAIm in Action' },
+        { href: '/our-products', label: 'Our Products' },
+        { href: '/how-exaim-works', label: 'How ExAIm Works' },
+        { href: '/book-a-demo', label: 'Book a Demo' },
       ],
     },
     {
       title: 'Company',
       links: [
-        { href: '/about', label: 'About' },
+        { href: '/our-story', label: 'Our Story' },
+        { href: '/why-exaim/security', label: 'Security' },
+      ],
+    },
+    {
+      title: 'Resources',
+      links: [
+        { href: '/', label: 'Home' },
+        { href: '/privacy-policy', label: 'Privacy Policy' },
+        { href: '/terms-and-conditions', label: 'Terms and Conditions' },
       ],
     },
   ]
@@ -44,7 +55,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="relative bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 text-gray-300 pt-16 pb-4 overflow-hidden">
+    <footer className="relative bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 text-gray-300 py-12 md:py-16 lg:py-20 overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -77,13 +88,13 @@ export default function Footer() {
       </div>
 
       <div className="relative z-10 container-wrapper">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 lg:gap-10 mb-12 md:mb-16">
           {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={mounted ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="md:col-span-1"
+            className="md:col-span-2 lg:col-span-1"
           >
             <div className="inline-block mb-4">
               <Link href="/" className="flex items-center">
@@ -96,7 +107,7 @@ export default function Footer() {
                 />
               </Link>
             </div>
-            <p className="text-sm text-gray-300 leading-relaxed">
+            <p className="text-sm md:text-base text-gray-300 leading-relaxed mb-4 md:mb-6">
               AI-powered exam preparation platform for schools worldwide.
             </p>
           </motion.div>
@@ -109,7 +120,7 @@ export default function Footer() {
               animate={mounted ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: sectionIndex * 0.1 }}
             >
-              <h4 className="font-semibold text-white mb-6 text-base md:text-lg relative">
+              <h4 className="font-semibold text-white mb-6 md:mb-8 text-base md:text-lg relative">
                 {section.title}
                 <motion.div
                   className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-primary-400 to-secondary-400"
@@ -118,7 +129,7 @@ export default function Footer() {
                   transition={{ duration: 0.6, delay: sectionIndex * 0.1 + 0.3 }}
                 />
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-3 md:space-y-4">
                 {section.links.map((link, linkIndex) => (
                   <motion.li
                     key={link.href}
@@ -148,7 +159,7 @@ export default function Footer() {
             animate={mounted ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="font-semibold text-white mb-6 text-base md:text-lg relative">
+            <h4 className="font-semibold text-white mb-6 md:mb-8 text-base md:text-lg relative">
               Connect
               <motion.div
                 className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-primary-400 to-secondary-400"
@@ -157,7 +168,7 @@ export default function Footer() {
                 transition={{ duration: 0.6, delay: 0.5 }}
               />
             </h4>
-            <ul className="space-y-4">
+            <ul className="space-y-3 md:space-y-4">
               {socialLinks.map((social, index) => (
                 <motion.li
                   key={social.href}
@@ -192,14 +203,14 @@ export default function Footer() {
           initial={{ opacity: 0 }}
           animate={mounted ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="border-t border-gray-800 pt-6 pb-0"
+          className="border-t border-gray-800 pt-8 md:pt-12 lg:pt-16 mt-12 md:mt-16"
         >
           <div className="text-center">
-            <p className="text-[10px] text-gray-300">
+            <p className="text-xs md:text-sm text-gray-300">
               &copy; {new Date().getFullYear()} ExAIm. All rights reserved.{' '}
               <motion.a
                 href="https://www.exaim.ai"
-                className="text-[10px] text-gray-300 hover:text-primary-400 transition-colors relative group inline-block"
+                className="text-xs md:text-sm text-gray-300 hover:text-primary-400 transition-colors relative group inline-block"
                 whileHover={{ scale: 1.05 }}
               >
                 www.exaim.ai

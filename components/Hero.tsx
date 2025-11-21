@@ -44,40 +44,9 @@ const textVariants = {
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false)
-  const [particles, setParticles] = useState<Array<{
-    startX: number
-    startY: number
-    endX: number
-    endY: number
-    duration: number
-  }>>([])
 
   useEffect(() => {
     setMounted(true)
-    
-    // Pre-calculate particle positions and animations for better performance
-    if (typeof window !== 'undefined') {
-      const width = window.innerWidth
-      const height = window.innerHeight
-      
-      const calculatedParticles = Array.from({ length: 25 }, () => {
-        const startX = Math.random() * width
-        const startY = Math.random() * height
-        const endX = Math.random() * width
-        const endY = Math.random() * height
-        const duration = Math.random() * 8 + 8 // 8-16 seconds
-        
-        return {
-          startX,
-          startY,
-          endX,
-          endY,
-          duration,
-        }
-      })
-      
-      setParticles(calculatedParticles)
-    }
   }, [])
 
   const stats = [
@@ -90,107 +59,10 @@ export default function Hero() {
   const headlineWords = "Improve student attainment with AI-powered exam preparation".split(' ')
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-visible bg-gradient-to-br from-primary-50 via-white to-secondary-50 pt-20 pb-24 md:pb-32">
-      {/* Enhanced Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-20 left-10 w-72 h-72 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.4, 0.3],
-            x: [0, 30, 0],
-            y: [0, -20, 0],
-          }}
-          transition={{
-            duration: 7,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 0,
-          }}
-        />
-        <motion.div
-          className="absolute top-40 right-10 w-72 h-72 bg-secondary-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{
-            scale: [1, 1.15, 1],
-            opacity: [0.3, 0.4, 0.3],
-            x: [0, -25, 0],
-            y: [0, 25, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-        />
-        <motion.div
-          className="absolute -bottom-8 left-1/2 w-72 h-72 bg-accent-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.4, 0.3],
-            x: [0, 20, 0],
-            y: [0, -15, 0],
-          }}
-          transition={{
-            duration: 9,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-        />
-        
-        {/* Additional floating orbs */}
-        <motion.div
-          className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-primary-400/20 to-secondary-400/20 rounded-full blur-3xl"
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.3, 0.2],
-            x: [0, 50, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 0.5,
-          }}
-        />
-      </div>
-
-      {/* Enhanced Particle Effect Background */}
-      {mounted && (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {particles.map((particle, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-primary-400 rounded-full opacity-20 will-change-transform"
-              initial={{
-                x: particle.startX,
-                y: particle.startY,
-                scale: 0,
-              }}
-              animate={{
-                x: particle.endX,
-                y: particle.endY,
-                scale: [0, 1, 0],
-              }}
-              transition={{
-                duration: particle.duration,
-                repeat: Infinity,
-                repeatType: 'reverse',
-                ease: 'easeInOut',
-              }}
-            />
-          ))}
-        </div>
-      )}
+    <section className="relative overflow-visible bg-white section-padding-lg pt-32 md:pt-40 lg:pt-44 pb-16 md:pb-20 lg:pb-24">
 
       <motion.div
-        className="relative z-10 container-wrapper py-16 md:py-20"
+        className="relative z-10 container-wrapper"
         variants={containerVariants}
         initial="hidden"
         animate={mounted ? "visible" : "hidden"}
@@ -198,7 +70,7 @@ export default function Hero() {
         <div className="text-center">
           {/* Enhanced Main Headline with Stagger Animation */}
           <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 md:mb-8 lg:mb-10 leading-tight px-4"
             variants={containerVariants}
             initial="hidden"
             animate={mounted ? "visible" : "hidden"}
@@ -233,7 +105,7 @@ export default function Hero() {
             variants={itemVariants}
             initial="hidden"
             animate={mounted ? "visible" : "hidden"}
-            className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto"
+            className="text-base md:text-lg lg:text-xl text-gray-700 mb-8 md:mb-10 lg:mb-12 max-w-3xl mx-auto leading-relaxed"
           >
             ExAIm uses simulated exam conditions, automated marking, and personalised examiner-level feedback to help every student achieve better results while reducing teacher workload.
           </motion.p>
@@ -243,7 +115,7 @@ export default function Hero() {
             variants={containerVariants}
             initial="hidden"
             animate={mounted ? "visible" : "hidden"}
-            className="flex justify-center items-center mb-12"
+            className="flex justify-center items-center mb-12 md:mb-16 lg:mb-20"
           >
             <motion.a
               href="/book-a-demo"
@@ -258,7 +130,7 @@ export default function Hero() {
                 scale: 0.95,
                 transition: { type: "spring", stiffness: 400, damping: 17 }
               }}
-              className="relative px-8 py-4 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-lg text-lg font-semibold flex items-center gap-2 overflow-hidden group"
+              className="relative px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-lg text-base md:text-lg font-semibold flex items-center gap-2 overflow-hidden group w-full sm:w-auto justify-center focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-all min-h-[48px]"
             >
               <motion.div
                 className="absolute inset-0 bg-white/20"
@@ -267,13 +139,14 @@ export default function Hero() {
                 transition={{ duration: 0.6 }}
                 style={{ borderRadius: '50%', x: '-50%', y: '-50%' }}
               />
-              <span className="relative z-10 flex items-center gap-2">
-                Book a Demo & Start Your 30-Day Free Pilot
+              <span className="relative z-10 flex items-center gap-2 text-center">
+                <span className="whitespace-nowrap">Book a Demo</span>
+                <span className="hidden sm:inline whitespace-nowrap">& Start Your 30-Day Free Pilot</span>
                 <motion.div
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-5 h-5 flex-shrink-0" />
                 </motion.div>
               </span>
             </motion.a>
@@ -284,11 +157,11 @@ export default function Hero() {
             variants={itemVariants}
             initial="hidden"
             animate={mounted ? "visible" : "hidden"}
-            className="mt-12 mb-8"
+            className="mb-12 md:mb-16 lg:mb-20"
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="inline-block bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full text-gray-700 font-medium shadow-md"
+              className="inline-block bg-white/90 backdrop-blur-sm px-4 md:px-6 py-2 md:py-3 rounded-full text-gray-700 text-sm md:text-base font-medium shadow-md text-center"
             >
               Trusted by 5,000+ students across 20 schools worldwide.
             </motion.div>
@@ -299,7 +172,7 @@ export default function Hero() {
             variants={containerVariants}
             initial="hidden"
             animate={mounted ? "visible" : "hidden"}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-3xl mx-auto mt-8"
+            className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-4xl mx-auto"
           >
             {stats.map((stat, index) => (
               <motion.div
@@ -312,7 +185,7 @@ export default function Hero() {
                   rotateX: 2,
                   transition: { type: "spring", stiffness: 300, damping: 20 }
                 }}
-                className="relative bg-white/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-lg hover-glow-intense hover-3d group cursor-pointer overflow-hidden"
+                className="relative bg-white/80 backdrop-blur-sm rounded-xl p-6 md:p-8 lg:p-10 shadow-lg hover:shadow-xl hover-glow-intense hover-3d group cursor-pointer overflow-hidden h-full flex flex-col items-center justify-center transition-all duration-300"
               >
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-primary-600/10 to-secondary-600/10 rounded-xl opacity-0 group-hover:opacity-100"

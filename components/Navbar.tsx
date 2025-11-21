@@ -31,8 +31,8 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '/how-exaim-works', label: 'How ExAIm Works' },
     { href: '/our-products', label: 'Our Products' },
+    { href: '/how-exaim-works', label: 'How ExAIm Works' },
     { href: '/our-story', label: 'Our Story' },
   ]
 
@@ -65,7 +65,7 @@ export default function Navbar() {
           </motion.div>
 
           {/* Enhanced Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center gap-4 md:gap-6">
             {navLinks.map((link) => {
               return (
                 <motion.div key={link.href} whileHover={{ y: -2 }}>
@@ -94,7 +94,7 @@ export default function Navbar() {
               <Link
                 href="/book-a-demo"
                 prefetch={true}
-                className="relative px-6 py-2 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-lg font-medium transition-opacity hover:opacity-90"
+                className="relative px-6 py-3 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-lg font-medium transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
               >
                 Book a Demo
               </Link>
@@ -117,16 +117,17 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
-          className="md:hidden bg-white border-t"
+          exit={{ opacity: 0, height: 0 }}
+          className="md:hidden bg-white border-t shadow-lg"
         >
-            <div className="px-4 py-4 space-y-4">
+            <div className="px-4 py-6 space-y-4">
               {navLinks.map((link) => {
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
                     prefetch={true}
-                    className={`relative flex items-center gap-2 font-medium px-3 py-2 rounded-lg transition-all ${
+                    className={`relative flex items-center gap-2 font-medium px-3 py-3 rounded-lg transition-all ${
                       pathname === link.href
                         ? 'text-primary-600'
                         : 'text-gray-700 hover:text-primary-600'
@@ -140,7 +141,7 @@ export default function Navbar() {
               <Link
                 href="/book-a-demo"
                 prefetch={true}
-                className="block px-6 py-2 bg-primary-600 text-white rounded-lg text-center font-medium"
+                className="block px-6 py-3 bg-primary-600 text-white rounded-lg text-center font-medium focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Book a Demo

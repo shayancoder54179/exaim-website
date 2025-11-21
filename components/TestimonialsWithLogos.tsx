@@ -43,16 +43,16 @@ export default function TestimonialsWithLogos() {
   ]
 
   return (
-    <section ref={ref} className="py-16 md:py-20 lg:py-24 bg-white">
+    <section ref={ref} className="section-padding bg-white">
       <div className="container-wrapper">
         {/* Testimonials Carousel */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-8 md:mb-10"
+          className="mb-12 md:mb-16 lg:mb-20"
         >
-          <div className="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-xl p-5 md:p-6 lg:p-8 shadow-xl text-white relative overflow-hidden">
+          <div className="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-xl p-6 md:p-8 lg:p-10 shadow-xl text-white relative overflow-hidden">
             <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
             <div className="relative z-10">
               <Quote className="w-8 h-8 mb-4 opacity-80" />
@@ -63,7 +63,7 @@ export default function TestimonialsWithLogos() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.4 }}
-                  className="text-base md:text-lg lg:text-xl font-medium mb-4 leading-relaxed"
+                  className="text-base md:text-lg lg:text-xl xl:text-2xl font-medium mb-4 md:mb-6 leading-relaxed"
                 >
                   {testimonials[currentTestimonial].quote}
                 </motion.blockquote>
@@ -137,9 +137,9 @@ export default function TestimonialsWithLogos() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-center mb-8"
+          className="text-center mb-12 md:mb-16 lg:mb-20"
         >
-          <p className="text-base md:text-lg text-gray-700">
+          <p className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed">
             Trusted by <span className="font-bold text-gray-900">5,000+ students</span> across{' '}
             <span className="font-bold text-gray-900">20+ globally recognised schools</span>
           </p>
@@ -150,7 +150,7 @@ export default function TestimonialsWithLogos() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="relative overflow-hidden py-6"
+          className="relative overflow-hidden py-4 md:py-6"
         >
           {/* Gradient overlays for smooth fade effect */}
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white via-white to-transparent z-10 pointer-events-none" />
@@ -158,7 +158,7 @@ export default function TestimonialsWithLogos() {
           
           {/* Scrolling container */}
           <div className="flex overflow-hidden">
-            <div className="flex gap-6 md:gap-8 lg:gap-12 items-center shrink-0 marquee">
+            <div className="flex gap-4 md:gap-6 lg:gap-8 items-center shrink-0 marquee">
               {[...schools, ...schools].map((school, index) => (
                 <motion.div
                   key={`marquee-${index}`}

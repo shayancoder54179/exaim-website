@@ -31,23 +31,23 @@ export default function SolutionOverview() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="features" ref={ref} className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="features" ref={ref} className="section-padding bg-white">
+      <div className="container-wrapper">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16 lg:mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
             An all-in-one AI-powered exam preparation platform
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             ExAIm brings together exam creation, simulated assessment delivery, automated marking, analytics, and personalised feedback — all in a single, easy-to-use system.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -64,7 +64,7 @@ export default function SolutionOverview() {
                 scale: 1.05,
                 rotateY: 10
               }}
-              className="relative text-center p-8 rounded-xl bg-white shadow-lg hover:shadow-2xl transition-all group cursor-pointer overflow-hidden hover-3d"
+              className="relative text-center p-6 md:p-8 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all group cursor-pointer overflow-hidden hover-3d"
             >
               {/* Animated background */}
               <motion.div
@@ -89,10 +89,10 @@ export default function SolutionOverview() {
                 <feature.icon className="w-10 h-10 text-white relative z-10" />
               </motion.div>
               
-              <h3 className="text-xl font-semibold mb-2 relative z-10 group-hover:text-primary-600 transition-colors">
+              <h3 className="text-xl font-semibold mb-3 md:mb-4 relative z-10 group-hover:text-primary-600 transition-colors">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 relative z-10">{feature.desc}</p>
+              <p className="text-gray-600 leading-relaxed relative z-10">{feature.desc}</p>
               
               {/* Sparkle effect */}
               {[...Array(3)].map((_, i) => (

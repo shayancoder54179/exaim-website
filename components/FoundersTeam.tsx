@@ -7,10 +7,10 @@ import { GraduationCap, User, Code } from 'lucide-react'
 
 const teamMembers = [
   {
-    name: 'Munshi',
+    name: 'Iqbal Munshi',
     role: 'Teacher & Educational Advisor',
     icon: GraduationCap,
-    description: 'With over 30 years of teaching experience, Munshi brings deep insights into the challenges teachers and students face in exam preparation. His expertise in understanding exam-related issues and educational methodologies has been instrumental in shaping ExAIm\'s approach to helping students succeed.',
+    description: 'With over 30 years of teaching experience, Iqbal Munshi brings deep insights into the challenges teachers and students face in exam preparation. His expertise in understanding exam-related issues and educational methodologies has been instrumental in shaping ExAIm\'s approach to helping students succeed.',
     color: 'from-blue-50 to-blue-100',
     iconColor: 'text-blue-600',
   },
@@ -18,15 +18,15 @@ const teamMembers = [
     name: 'Shaun Daswani',
     role: 'Founder & CEO',
     icon: User,
-    description: 'Shaun was once Munshi\'s student, learning firsthand about the struggles students face during exam preparation. This experience inspired him to create ExAIm, combining his background in mathematics and economics with a deep understanding of educational needs to revolutionize how students prepare for exams.',
-    color: 'from-primary-50 to-secondary-50',
-    iconColor: 'text-primary-600',
+    description: 'Shaun was once Iqbal Munshi\'s student, learning firsthand about the struggles students face during exam preparation. This experience inspired him to create ExAIm, combining his background in mathematics and economics with a deep understanding of educational needs to revolutionize how students prepare for exams.',
+    color: 'from-green-50 to-green-100',
+    iconColor: 'text-green-600',
   },
   {
     name: 'Jason Daswani',
     role: 'COO & Product Lead',
     icon: Code,
-    description: 'Jason, Shaun\'s brother, brings a strong understanding of product development and technology. His expertise in translating educational needs into innovative tech solutions ensures that ExAIm delivers a seamless, powerful platform that teachers and students can rely on.',
+    description: 'Jason brings a strong understanding of product development and technology. His expertise in translating educational needs into innovative tech solutions ensures that ExAIm delivers a seamless, powerful platform that teachers and students can rely on.',
     color: 'from-purple-50 to-purple-100',
     iconColor: 'text-purple-600',
   },
@@ -44,13 +44,13 @@ export default function FoundersTeam() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6 text-center">
             Our Story
           </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+          <p className="text-center text-gray-600 mb-12 md:mb-16 lg:mb-20 max-w-2xl mx-auto leading-relaxed">
             Meet the team behind ExAIm and learn how their unique backgrounds came together to transform exam preparation.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             {teamMembers.map((member, index) => {
               const IconComponent = member.icon
               return (

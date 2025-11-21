@@ -31,20 +31,20 @@ export default function Methodology() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="methodology" ref={ref} className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="methodology" ref={ref} className="section-padding bg-white">
+      <div className="container-wrapper">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16 lg:mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
             A proven methodology to improve student attainment
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -52,19 +52,19 @@ export default function Methodology() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ scale: 1.05 }}
-              className="relative bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl p-6 md:p-8 hover:shadow-xl transition-all"
+              className="relative bg-gradient-to-br from-primary-50 to-secondary-50 rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all"
             >
               <div className="absolute top-4 right-4 text-6xl font-bold text-primary-200 opacity-50">
                 {index + 1}
               </div>
               <div className="relative z-10">
                 <step.icon className="w-12 h-12 text-primary-600 mb-4" />
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 md:mb-4">
                   {step.title}
                 </h3>
-                <ul className="space-y-2">
+                <ul className="space-y-4 md:space-y-6">
                   {step.items.map((item, i) => (
-                    <li key={i} className="text-gray-600 flex items-start">
+                    <li key={i} className="text-gray-600 flex items-start leading-relaxed">
                       <span className="text-primary-600 mr-2 font-bold">•</span>
                       <span>{item}</span>
                     </li>

@@ -57,15 +57,15 @@ export default function DemoBookingForm() {
   }
 
   return (
-    <div ref={ref} className="bg-white rounded-xl p-6 md:p-8 lg:p-12 shadow-xl mb-12">
+    <div ref={ref} className="bg-white rounded-xl p-6 md:p-8 lg:p-10 shadow-xl mb-12 md:mb-16 max-w-3xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
-        className="text-center mb-8"
+        className="text-center mb-6 md:mb-8"
       >
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Book Your Demo</h2>
-        <p className="text-gray-700 max-w-2xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 md:mb-4">Book Your Demo</h2>
+        <p className="text-gray-700 max-w-2xl mx-auto leading-relaxed">
           Fill out the form below and we'll get back to you to schedule a personalized demo at a time that works for you.
         </p>
       </motion.div>
@@ -94,9 +94,9 @@ export default function DemoBookingForm() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
           onSubmit={handleSubmit}
-          className="space-y-6 max-w-3xl mx-auto"
+          className="space-y-4 md:space-y-6"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <div>
               <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
                 Full Name *
@@ -136,10 +136,10 @@ export default function DemoBookingForm() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <div>
               <label htmlFor="school" className="block text-sm font-semibold text-gray-700 mb-2">
-                School/Organization *
+                School/Organisation *
               </label>
               <div className="relative">
                 <School className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -198,7 +198,7 @@ export default function DemoBookingForm() {
             </select>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <div>
               <label htmlFor="preferredDate" className="block text-sm font-semibold text-gray-700 mb-2">
                 Preferred Date
@@ -262,7 +262,7 @@ export default function DemoBookingForm() {
             disabled={isSubmitting}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full py-4 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-lg font-semibold text-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-3 md:py-4 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-lg font-semibold text-base md:text-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? (
               <>

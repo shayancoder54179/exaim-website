@@ -21,7 +21,6 @@ import {
   GraduationCap,
   School,
   Users,
-  Quote,
   Sparkles,
   Zap,
   Brain,
@@ -42,21 +41,21 @@ function HeroSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section ref={ref} className="pt-32 pb-20 md:pt-40 md:pb-24 bg-gradient-to-br from-primary-50 via-white to-secondary-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section ref={ref} className="section-padding-lg pt-32 md:pt-40 lg:pt-44 bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+      <div className="container-wrapper">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8 items-center">
           {/* Left Column - Text */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="space-y-6 lg:pr-8"
+            className="space-y-6"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-xl bg-primary-100 mb-4"
+              className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-xl bg-primary-100"
             >
               <Sparkles className="w-6 h-6 md:w-7 md:h-7 text-primary-600" />
             </motion.div>
@@ -66,7 +65,7 @@ function HeroSection() {
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
               ExAIm uses AI-powered assessments to streamline exam preparation, automate marking, and personalise learning to improve student outcomes. Transform how your school prepares students for GCSE, A-Level, IB, and other curricula.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
               <motion.div
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
@@ -103,7 +102,7 @@ function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
-            className="relative w-full lg:w-[130%] lg:-mr-[12%] lg:-ml-[10%]"
+            className="relative w-full lg:w-full"
           >
             <div className="relative rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
               <Image
@@ -111,7 +110,7 @@ function HeroSection() {
                 alt="ExAIm Platform Preview"
                 width={1600}
                 height={1000}
-                className="w-full h-auto"
+                className="w-full h-auto object-contain"
                 priority
               />
             </div>
@@ -163,32 +162,32 @@ function WalkthroughSection() {
   ]
 
   return (
-    <section ref={ref} className="py-16 md:py-20 lg:py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section ref={ref} className="section-padding bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20" />
         <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-secondary-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 container-wrapper">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-12 md:mb-16 lg:mb-20"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-primary-100 to-primary-50 mb-4"
+            className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-primary-100 to-primary-50 mb-4 md:mb-6"
           >
             <Sparkles className="w-7 h-7 text-primary-600" />
           </motion.div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
             Walk through an example
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             See how ExAIm transforms the exam preparation workflow for teachers and students.
           </p>
         </motion.div>
@@ -212,14 +211,14 @@ function WalkthroughSection() {
           {/* Vertical connecting line */}
           <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-200 via-primary-300 to-primary-200" />
           
-          <div className="space-y-12 lg:space-y-16">
+          <div className="space-y-8 md:space-y-12">
             {steps.map((step, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: -30 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
-                className="relative flex items-start gap-8 lg:gap-12 group"
+                className="relative flex items-start gap-6 md:gap-8 group"
               >
                 {/* Step number circle on timeline */}
                 <div className="relative z-10 flex-shrink-0">
@@ -249,7 +248,7 @@ function WalkthroughSection() {
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                     {/* Text content */}
-                    <div className="p-6 lg:p-8 flex flex-col justify-center min-h-[280px]">
+                    <div className="p-6 md:p-8 lg:p-10 flex flex-col justify-center min-h-[280px]">
                       <div>
                         <motion.span
                           initial={{ opacity: 0 }}
@@ -263,7 +262,7 @@ function WalkthroughSection() {
                           initial={{ opacity: 0, y: 10 }}
                           animate={isInView ? { opacity: 1, y: 0 } : {}}
                           transition={{ duration: 0.5, delay: index * 0.15 + 0.3 }}
-                          className="text-2xl lg:text-3xl font-bold text-gray-900 mb-3 leading-tight"
+                          className="text-2xl lg:text-3xl font-bold text-gray-900 mb-3 md:mb-4 leading-tight"
                         >
                           {step.title}
                         </motion.h3>
@@ -271,7 +270,7 @@ function WalkthroughSection() {
                           initial={{ opacity: 0 }}
                           animate={isInView ? { opacity: 1 } : {}}
                           transition={{ duration: 0.5, delay: index * 0.15 + 0.4 }}
-                          className="text-gray-600 leading-relaxed text-base lg:text-lg"
+                          className="text-gray-600 leading-relaxed text-base md:text-lg"
                         >
                           {step.description}
                         </motion.p>
@@ -371,24 +370,24 @@ function MethodologySection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section ref={ref} className="py-16 md:py-20 lg:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={ref} className="section-padding bg-white">
+      <div className="container-wrapper">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-12 md:mb-16 lg:mb-20"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
             What happens behind the scenes
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             ExAIm combines exam-board specific mark schemes, advanced AI, and educational expertise to deliver accurate, actionable feedback.
           </p>
         </motion.div>
 
-        <div className="bg-gradient-to-br from-gray-50 to-primary-50 rounded-2xl p-8 md:p-12 shadow-lg border border-gray-100">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-4 items-center">
+        <div className="bg-gradient-to-br from-gray-50 to-primary-50 rounded-xl p-6 md:p-8 shadow-lg border border-gray-100">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-6 lg:gap-8 items-center">
             {/* Input Stage */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -448,8 +447,8 @@ function MethodologySection() {
           </div>
 
           {/* Additional details */}
-          <div className="mt-8 pt-8 border-t border-gray-200">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-gray-200">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
               <div className="text-center">
                 <Shield className="w-8 h-8 text-primary-600 mx-auto mb-2" />
                 <p className="text-sm text-gray-600">Exam-board aligned mark schemes</p>
@@ -482,15 +481,15 @@ function ImpactSection() {
   ]
 
   return (
-    <section ref={ref} className="py-16 md:py-20 lg:py-24 bg-gradient-to-br from-primary-50 to-secondary-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={ref} className="section-padding bg-gradient-to-br from-primary-50 to-secondary-50">
+      <div className="container-wrapper">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-12 md:mb-16 lg:mb-20"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
             Grade faster, teach smarter, improve outcomes
           </h2>
         </motion.div>
@@ -501,9 +500,9 @@ function ImpactSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="space-y-4 md:space-y-6"
           >
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 md:gap-6">
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
@@ -511,7 +510,7 @@ function ImpactSection() {
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ scale: 1.05, y: -5 }}
-                  className="bg-white rounded-xl p-6 shadow-md border border-gray-100 text-center cursor-pointer"
+                  className="bg-white rounded-xl p-6 md:p-8 lg:p-10 shadow-lg hover:shadow-xl border border-gray-100 text-center cursor-pointer"
                 >
                   <motion.div
                     animate={{ rotate: [0, 5, -5, 0] }}
@@ -531,9 +530,9 @@ function ImpactSection() {
                 </motion.div>
               ))}
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
-              <h3 className="font-bold text-gray-900 mb-4">Key Benefits</h3>
-              <ul className="space-y-3 text-gray-600">
+            <div className="bg-white rounded-xl p-6 md:p-8 lg:p-10 shadow-lg border border-gray-100">
+              <h3 className="font-bold text-gray-900 mb-3 md:mb-4">Key Benefits</h3>
+              <ul className="space-y-4 md:space-y-6 text-gray-600">
                 <li className="flex items-start gap-2">
                   <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                   <span>Reduced manual grading workload frees up time for teaching</span>
@@ -575,29 +574,29 @@ function ComparisonSection() {
   ]
 
   return (
-    <section ref={ref} className="py-16 md:py-20 lg:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={ref} className="section-padding bg-white">
+      <div className="container-wrapper">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-12 md:mb-16 lg:mb-20"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
             Why schools choose ExAIm
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             See how ExAIm compares to traditional assessment methods and multiple-tool workflows.
           </p>
         </motion.div>
 
-        <div className="bg-gray-50 rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 overflow-x-auto">
+        <div className="bg-gray-50 rounded-xl p-6 md:p-8 lg:p-10 shadow-lg border border-gray-100 overflow-x-auto">
           <table className="w-full">
             <thead>
               <tr className="border-b border-gray-200">
-                <th className="text-left py-4 px-4 font-semibold text-gray-900">Feature</th>
-                <th className="text-center py-4 px-4 font-semibold text-gray-900">Traditional / Multiple Tools</th>
-                <th className="text-center py-4 px-4 font-semibold text-gray-900">ExAIm</th>
+                <th className="text-left py-3 md:py-4 px-4 font-semibold text-gray-900">Feature</th>
+                <th className="text-center py-3 md:py-4 px-4 font-semibold text-gray-900">Traditional / Multiple Tools</th>
+                <th className="text-center py-3 md:py-4 px-4 font-semibold text-gray-900">ExAIm</th>
               </tr>
             </thead>
             <tbody>
@@ -609,15 +608,15 @@ function ComparisonSection() {
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                   className="border-b border-gray-100 hover:bg-white transition-colors"
                 >
-                  <td className="py-4 px-4 text-gray-700">{item.feature}</td>
-                  <td className="py-4 px-4 text-center">
+                  <td className="py-3 md:py-4 px-4 text-gray-700 leading-relaxed">{item.feature}</td>
+                  <td className="py-3 md:py-4 px-4 text-center">
                     {item.traditional ? (
                       <Check className="w-5 h-5 text-green-600 mx-auto" />
                     ) : (
                       <Minus className="w-5 h-5 text-gray-400 mx-auto" />
                     )}
                   </td>
-                  <td className="py-4 px-4 text-center">
+                  <td className="py-3 md:py-4 px-4 text-center">
                     {item.exaim ? (
                       <Check className="w-5 h-5 text-green-600 mx-auto" />
                     ) : (
@@ -682,23 +681,23 @@ function StakeholderWorkflowSection() {
   ]
 
   return (
-    <section ref={ref} className="py-16 md:py-20 lg:py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={ref} className="section-padding bg-gray-50">
+      <div className="container-wrapper">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-12 md:mb-16 lg:mb-20"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
             ExAIm fits into your existing workflow
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Designed to work seamlessly with your school's processes and benefit every stakeholder.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {stakeholders.map((stakeholder, index) => (
             <motion.div
               key={index}
@@ -706,15 +705,15 @@ function StakeholderWorkflowSection() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.2 } }}
-              className="bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100 cursor-pointer"
+              className="bg-white rounded-xl p-6 md:p-8 lg:p-10 shadow-lg hover:shadow-xl transition-all border border-gray-100 cursor-pointer"
             >
               <div className={`w-16 h-16 bg-gradient-to-br ${stakeholder.color} rounded-xl flex items-center justify-center mb-6 shadow-lg`}>
                 <stakeholder.icon className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">{stakeholder.title}</h3>
-              <ul className="space-y-3">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 md:mb-4">{stakeholder.title}</h3>
+              <ul className="space-y-4 md:space-y-6">
                 {stakeholder.benefits.map((benefit, i) => (
-                  <li key={i} className="text-gray-600 flex items-start gap-2 text-sm">
+                  <li key={i} className="text-gray-600 flex items-start gap-2 text-sm leading-relaxed">
                     <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                     <span>{benefit}</span>
                   </li>
@@ -728,138 +727,27 @@ function StakeholderWorkflowSection() {
   )
 }
 
-function TestimonialsSection() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
-
-  const testimonials = [
-    {
-      name: 'Vanessa North-Panting',
-      role: 'Head of Digital Learning',
-      school: 'Charterhouse',
-      quote: 'The feature that allows students to answer questions and receive instant feedback is a game-changer. It has significantly enhanced our teaching process and student engagement.',
-    },
-    {
-      name: 'Steve Porter',
-      role: 'Head of Business & Economics',
-      school: 'Tanglin Trust Singapore',
-      quote: 'ExAIm has transformed how we prepare students for exams. The automated marking and detailed analytics save hours each week, allowing us to focus on what matters most—teaching.',
-    },
-  ]
-
-  const schools = [
-    { name: 'Harrow School', logo: '/companies/Harrow_Crest.svg (1).png' },
-    { name: 'Stowe', logo: '/companies/Arms_of_Stowe_School.svg (1).png' },
-    { name: 'UCS Hampstead', logo: '/companies/UCS_RGB (1).png' },
-    { name: 'Uppingham', logo: '/companies/logo-137424 (1).png' },
-    { name: 'Charterhouse', logo: '/companies/logo-370x90-1.png' },
-    { name: 'Improve ME Institute', logo: '/companies/image (33).png' },
-    { name: 'Batley Girls', logo: '/companies/images (3).png' },
-  ]
-
-  return (
-    <section ref={ref} className="py-16 md:py-20 lg:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Featured Testimonial */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-12 md:mb-16"
-        >
-          <div className="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-2xl p-8 md:p-12 shadow-xl text-white relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-            <div className="relative z-10">
-              <Quote className="w-12 h-12 mb-6 opacity-80" />
-              <motion.blockquote
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : {}}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-xl md:text-2xl font-medium mb-6 leading-relaxed"
-              >
-                {testimonials[0].quote}
-              </motion.blockquote>
-              <div className="flex items-center gap-4">
-                <div>
-                  <div className="font-semibold text-lg">{testimonials[0].name}</div>
-                  <div className="text-white/80">{testimonials[0].role}, {testimonials[0].school}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Stats Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-center mb-12"
-        >
-          <p className="text-lg md:text-xl text-gray-600">
-            Trusted by <span className="font-bold text-gray-900">5,000+ students</span> across{' '}
-            <span className="font-bold text-gray-900">20+ globally recognised schools</span>
-          </p>
-        </motion.div>
-
-        {/* School Logos */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="relative overflow-hidden py-8"
-        >
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-          
-          <div className="flex gap-8 md:gap-12 items-center">
-            {schools.map((school, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.3, delay: 0.5 + index * 0.05 }}
-                whileHover={{ scale: 1.1 }}
-                className="flex-shrink-0 h-16 md:h-20 grayscale hover:grayscale-0 transition-all"
-              >
-                <Image
-                  src={school.logo}
-                  alt={school.name}
-                  width={200}
-                  height={80}
-                  className="max-h-full w-auto object-contain"
-                  unoptimized
-                />
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  )
-}
-
 function FinalCTASection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section ref={ref} className="py-20 md:py-24 bg-gradient-to-br from-primary-600 via-secondary-600 to-primary-700 relative overflow-hidden">
+    <section ref={ref} className="section-padding bg-gradient-to-br from-primary-600 via-secondary-600 to-primary-700 relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full filter blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full filter blur-3xl"></div>
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto container-wrapper text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 md:mb-6">
             Would you like to see ExAIm in action?
           </h2>
-          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-white/90 mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
             Book a live walkthrough and discover how ExAIm can transform exam preparation at your school.
           </p>
           <motion.div
@@ -872,7 +760,7 @@ function FinalCTASection() {
               <Link href="/book-a-demo" className="group">
                 <Button
                   size="lg"
-                  className="px-8 py-6 bg-white text-primary-600 rounded-lg text-lg font-semibold hover:shadow-xl transition-all flex items-center gap-2"
+                  className="px-6 md:px-8 py-3 md:py-4 bg-white text-primary-600 rounded-lg text-base md:text-lg font-semibold hover:shadow-xl transition-all flex items-center gap-2"
                 >
                   Book a demo
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -897,7 +785,6 @@ export default function HowExAImWorksPage() {
       <ImpactSection />
       <ComparisonSection />
       <StakeholderWorkflowSection />
-      <TestimonialsSection />
       <FinalCTASection />
       <Footer />
     </main>
