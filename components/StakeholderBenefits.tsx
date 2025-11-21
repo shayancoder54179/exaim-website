@@ -23,20 +23,20 @@ const stakeholders = [
     color: 'from-green-500 to-green-600',
   },
   {
-    icon: Users,
-    title: 'Parents',
-    benefits: [
-      'Track student performance and monitor progress transparently.',
-    ],
-    color: 'from-orange-500 to-orange-600',
-  },
-  {
     icon: School,
     title: 'Schools & Leadership Teams',
     benefits: [
       'Access real-time, data-driven insights to support digital transformation and improve outcomes at scale.',
     ],
     color: 'from-primary-500 to-primary-600',
+  },
+  {
+    icon: Users,
+    title: 'Parents',
+    benefits: [
+      'Track student performance and monitor progress transparently.',
+    ],
+    color: 'from-orange-500 to-orange-600',
   },
 ]
 

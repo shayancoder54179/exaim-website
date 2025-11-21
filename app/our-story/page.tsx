@@ -11,15 +11,15 @@ const Footer = dynamic(() => import('@/components/Footer'), {
 })
 
 export const metadata: Metadata = {
-  title: 'About Us - ExAIm | Our Story',
+  title: 'Our Story - ExAIm | Meet the Team',
   description: 'Born in the classroom. Built for the world. Learn about ExAIm\'s origin story and our mission to transform exam preparation.',
   openGraph: {
-    title: 'About Us - ExAIm',
+    title: 'Our Story - ExAIm',
     description: 'Our story: from the classroom to the world.',
   },
 }
 
-export default function AboutPage() {
+export default function OurStoryPage() {
   return (
     <main className="min-h-screen">
       <ScrollAnimations />

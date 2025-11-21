@@ -17,7 +17,7 @@ const steps = [
   },
   {
     icon: MessageSquare,
-    title: 'Personalised Examiner-Level Feedback',
+    title: 'Personalised Learner-Level Feedback',
     items: [
       'AI trained on board-specific mark schemes',
       'Detailed feedback explaining reasoning',

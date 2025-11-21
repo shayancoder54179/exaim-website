@@ -3,28 +3,33 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { Award } from 'lucide-react'
+import { GraduationCap, User, Code } from 'lucide-react'
 
-const founders = [
+const teamMembers = [
+  {
+    name: 'Munshi',
+    role: 'Teacher & Educational Advisor',
+    icon: GraduationCap,
+    description: 'With over 30 years of teaching experience, Munshi brings deep insights into the challenges teachers and students face in exam preparation. His expertise in understanding exam-related issues and educational methodologies has been instrumental in shaping ExAIm\'s approach to helping students succeed.',
+    color: 'from-blue-50 to-blue-100',
+    iconColor: 'text-blue-600',
+  },
   {
     name: 'Shaun Daswani',
-    role: 'CEO',
-    credentials: [
-      'MSc Mathematics (Imperial College London)',
-      'BSc Mathematics & Economics (University College London)',
-    ],
+    role: 'Founder & CEO',
+    icon: User,
+    description: 'Shaun was once Munshi\'s student, learning firsthand about the struggles students face during exam preparation. This experience inspired him to create ExAIm, combining his background in mathematics and economics with a deep understanding of educational needs to revolutionize how students prepare for exams.',
+    color: 'from-primary-50 to-secondary-50',
+    iconColor: 'text-primary-600',
   },
   {
     name: 'Jason Daswani',
-    role: 'COO & AI R&D',
-    credentials: [
-      'BSc Mathematics (London School of Economics)',
-    ],
+    role: 'COO & Product Lead',
+    icon: Code,
+    description: 'Jason, Shaun\'s brother, brings a strong understanding of product development and technology. His expertise in translating educational needs into innovative tech solutions ensures that ExAIm delivers a seamless, powerful platform that teachers and students can rely on.',
+    color: 'from-purple-50 to-purple-100',
+    iconColor: 'text-purple-600',
   },
-]
-
-const advisors = [
-  { name: 'Iqbal Munshi', org: 'GEMS Education', years: '30+ years' },
 ]
 
 export default function FoundersTeam() {
@@ -34,71 +39,40 @@ export default function FoundersTeam() {
   return (
     <section id="about" ref={ref} className="section-padding bg-white">
       <div className="container-wrapper">
-        {/* Founders Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
-            Founders
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
+            Our Story
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {founders.map((founder, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-                whileHover={{ scale: 1.02 }}
-                className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-xl p-6 md:p-8"
-              >
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{founder.name}</h3>
-                <p className="text-primary-600 font-semibold mb-4">{founder.role}</p>
-                <ul className="space-y-2">
-                  {founder.credentials.map((cred, i) => (
-                    <li key={i} className="text-gray-700 flex items-start">
-                      <Award className="w-5 h-5 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                      {cred}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Advisory Team Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="pt-12 border-t border-gray-200"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
-            Advisory Team
-          </h2>
-          <p className="text-center text-gray-700 mb-8">
-            80+ years of collective experience
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Meet the team behind ExAIm and learn how their unique backgrounds came together to transform exam preparation.
           </p>
-          <div className="flex justify-center">
-            <div className="grid grid-cols-1 gap-6 max-w-sm">
-              {advisors.map((advisor, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {teamMembers.map((member, index) => {
+              const IconComponent = member.icon
+              return (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                  className="bg-white border-2 border-gray-200 rounded-xl p-6 md:p-8 hover:border-primary-300 transition-colors text-center"
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  className={`bg-gradient-to-br ${member.color} rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all flex flex-col h-full`}
                 >
-                  <div className="font-bold text-lg text-gray-900 mb-1">{advisor.name}</div>
-                  <div className="text-gray-600 mb-2">{advisor.org}</div>
-                  <div className="text-primary-600 font-semibold">{advisor.years}</div>
+                  <div className="flex items-center justify-center mb-6">
+                    <div className={`w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-md ${member.iconColor}`}>
+                      <IconComponent className="w-8 h-8" />
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2 text-center">{member.name}</h3>
+                  <p className={`font-semibold mb-4 text-center ${member.iconColor}`}>{member.role}</p>
+                  <p className="text-gray-700 leading-relaxed flex-grow">{member.description}</p>
                 </motion.div>
-              ))}
-            </div>
+              )
+            })}
           </div>
         </motion.div>
       </div>

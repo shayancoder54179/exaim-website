@@ -17,7 +17,6 @@ export default function Footer() {
     {
       title: 'Product',
       links: [
-        { href: '/pricing', label: 'Pricing' },
         { href: '/demo', label: 'See ExAIm in Action' },
       ],
     },

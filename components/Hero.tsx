@@ -83,7 +83,7 @@ export default function Hero() {
   const stats = [
     { value: '5,000+', label: 'Students', icon: Users },
     { value: '20+', label: 'Schools', icon: School },
-    { value: '100%', label: 'GDPR Compliant', icon: TrendingUp },
+    { value: '100%', label: 'Exam Coverage', icon: TrendingUp },
   ]
 
   // Split headline into words for stagger animation
@@ -235,15 +235,15 @@ export default function Hero() {
             animate={mounted ? "visible" : "hidden"}
             className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto"
           >
-            ExAIm uses simulated exam conditions, automated marking, and personalised examiner-level feedback to help every student achieve better results — while reducing teacher workload.
+            ExAIm uses simulated exam conditions, automated marking, and personalised examiner-level feedback to help every student achieve better results while reducing teacher workload.
           </motion.p>
 
-          {/* Enhanced CTA Buttons with Spring Animations */}
+          {/* Enhanced CTA Button with Spring Animations */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate={mounted ? "visible" : "hidden"}
-            className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-12"
+            className="flex justify-center items-center mb-12"
           >
             <motion.a
               href="/book-a-demo"
@@ -268,7 +268,7 @@ export default function Hero() {
                 style={{ borderRadius: '50%', x: '-50%', y: '-50%' }}
               />
               <span className="relative z-10 flex items-center gap-2">
-                Book a Demo
+                Book a Demo & Start Your 30-Day Free Pilot
                 <motion.div
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
@@ -276,28 +276,6 @@ export default function Hero() {
                   <ArrowRight className="w-5 h-5" />
                 </motion.div>
               </span>
-            </motion.a>
-            
-            <motion.a
-              href="/book-a-demo"
-              variants={itemVariants}
-              whileHover={{
-                scale: 1.05,
-                y: -5,
-                boxShadow: "0 20px 40px rgba(33, 96, 243, 0.2)",
-                transition: { type: "spring", stiffness: 400, damping: 17 }
-              }}
-              whileTap={{
-                scale: 0.95,
-                transition: { type: "spring", stiffness: 400, damping: 17 }
-              }}
-              className="relative px-8 py-4 bg-white text-primary-600 rounded-lg text-lg font-semibold border-2 border-primary-600 overflow-hidden group"
-            >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-primary-50 to-secondary-50 opacity-0 group-hover:opacity-100"
-                transition={{ duration: 0.3 }}
-              />
-              <span className="relative z-10">Start Your 30-Day Free Pilot</span>
             </motion.a>
           </motion.div>
 

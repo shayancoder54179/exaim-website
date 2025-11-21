@@ -30,10 +30,10 @@ export default function Navbar() {
   }, [])
 
   const navLinks = [
+    { href: '/', label: 'Home' },
     { href: '/how-exaim-works', label: 'How ExAIm Works' },
-    { href: '/pricing', label: 'Pricing' },
-    { href: '/demo', label: 'See ExAIm in Action' },
-    { href: '/about', label: 'About' },
+    { href: '/our-products', label: 'Our Products' },
+    { href: '/our-story', label: 'Our Story' },
   ]
 
   return (
@@ -67,16 +67,13 @@ export default function Navbar() {
           {/* Enhanced Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => {
-              const isHowItWorks = link.href === '/how-exaim-works'
               return (
                 <motion.div key={link.href} whileHover={{ y: -2 }}>
                   <Link
                     href={link.href}
                     prefetch={true}
                     className={`relative flex items-center gap-2 transition-all font-medium group ${
-                      isHowItWorks
-                        ? 'px-4 py-2 bg-gradient-to-r from-primary-500/10 to-secondary-500/10 rounded-lg text-primary-600 font-semibold border border-primary-200 hover:from-primary-500/20 hover:to-secondary-500/20'
-                        : pathname === link.href
+                      pathname === link.href
                         ? 'text-primary-600'
                         : 'text-gray-700 hover:text-primary-600'
                     }`}
@@ -84,10 +81,10 @@ export default function Navbar() {
                     {link.label}
                     <motion.span
                       className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary-600 to-secondary-600 transition-all duration-300 ${
-                        pathname === link.href || isHowItWorks ? 'w-full' : 'w-0 group-hover:w-full'
+                        pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'
                       }`}
                       initial={false}
-                      animate={{ width: pathname === link.href || isHowItWorks ? '100%' : 0 }}
+                      animate={{ width: pathname === link.href ? '100%' : 0 }}
                     />
                   </Link>
                 </motion.div>
@@ -124,16 +121,13 @@ export default function Navbar() {
         >
             <div className="px-4 py-4 space-y-4">
               {navLinks.map((link) => {
-                const isHowItWorks = link.href === '/how-exaim-works'
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
                     prefetch={true}
                     className={`relative flex items-center gap-2 font-medium px-3 py-2 rounded-lg transition-all ${
-                      isHowItWorks
-                        ? 'bg-gradient-to-r from-primary-500/10 to-secondary-500/10 text-primary-600 font-semibold border border-primary-200'
-                        : pathname === link.href
+                      pathname === link.href
                         ? 'text-primary-600'
                         : 'text-gray-700 hover:text-primary-600'
                     }`}

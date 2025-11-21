@@ -30,24 +30,14 @@ export default function FinalCTA() {
           <p className="text-base md:text-lg text-white/90 mb-8 md:mb-10 max-w-2xl mx-auto">
             Our vision is to transform the student learning experience by empowering educators to deliver measurable outcomes for all stakeholders.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-8 md:mb-10">
+          <div className="flex justify-center items-center mb-8 md:mb-10">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/book-a-demo"
                 prefetch={true}
                 className="group px-6 md:px-8 py-3 md:py-4 bg-white text-primary-600 rounded-lg text-base md:text-lg font-semibold hover:shadow-xl transition-all flex items-center gap-2 w-full sm:w-auto justify-center"
               >
-                Book a Demo
-                <ArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link
-                href="/demo"
-                prefetch={true}
-                className="group px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-lg text-base md:text-lg font-semibold hover:bg-white/20 transition-all flex items-center gap-2 w-full sm:w-auto justify-center"
-              >
-                Start Free Pilot
+                Book a Demo & Start Your 30-Day Free Pilot
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>

@@ -9,12 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: 'https://www.exaim.ai/pricing',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
       url: 'https://www.exaim.ai/demo',
       lastModified: new Date(),
       changeFrequency: 'monthly',
