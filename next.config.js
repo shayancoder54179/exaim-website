@@ -17,6 +17,16 @@ const nextConfig = {
   turbopack: {
     root: __dirname,
   },
+  // Redirects for common typos/old URLs
+  async redirects() {
+    return [
+      {
+        source: '/terms-and-condition',
+        destination: '/terms-and-conditions',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig

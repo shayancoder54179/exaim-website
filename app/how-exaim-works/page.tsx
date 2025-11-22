@@ -1,13 +1,16 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import Navbar from '@/components/Navbar'
-import ScrollAnimations from '@/components/ScrollAnimations'
 import { Button } from '@/components/ui/button'
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+
+const Navbar = dynamic(() => import('@/components/Navbar'), {
+  ssr: false,
+  loading: () => <div className="h-20" />,
+})
 import {
   ArrowRight,
   BookOpen,
@@ -114,6 +117,8 @@ function HeroSection() {
                 height={1000}
                 className="w-full h-auto object-contain"
                 priority
+                loading="eager"
+                fetchPriority="high"
               />
             </div>
           </motion.div>
@@ -294,6 +299,8 @@ function WalkthroughSection() {
                           height={800}
                           className="w-full h-full object-contain transition-transform duration-700 group-hover/card:scale-105"
                           priority={index < 2}
+                          loading={index < 2 ? "eager" : "lazy"}
+                          fetchPriority={index < 2 ? "high" : "low"}
                         />
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white/10 lg:bg-gradient-to-l lg:from-white/10 lg:via-transparent lg:to-transparent pointer-events-none" />
                       </motion.div>
@@ -356,6 +363,8 @@ function WalkthroughSection() {
                     height={800}
                     className="w-full h-full object-contain"
                     priority={index < 2}
+                    loading={index < 2 ? "eager" : "lazy"}
+                    fetchPriority={index < 2 ? "high" : "low"}
                   />
                 </div>
               </div>
@@ -414,19 +423,9 @@ function MethodologySection() {
               whileHover={{ scale: 1.1 }}
               className="text-center space-y-3 relative"
             >
-              <motion.div
-                className="w-20 h-20 mx-auto rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center shadow-xl"
-                animate={{ 
-                  boxShadow: [
-                    '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-                    '0 25px 50px -12px rgba(33, 96, 243, 0.5)',
-                    '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-                  ]
-                }}
-                transition={{ duration: 2, repeat: Infinity, repeatType: 'reverse' }}
-              >
+              <div className="w-20 h-20 mx-auto rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center shadow-xl">
                 <Brain className="w-10 h-10 text-white" />
-              </motion.div>
+              </div>
               <h3 className="font-semibold text-gray-900">ExAIm AI Engine</h3>
               <p className="text-sm text-gray-600">Board-specific analysis</p>
             </motion.div>
@@ -514,12 +513,7 @@ function ImpactSection() {
                   whileHover={{ scale: 1.05, y: -5 }}
                   className="bg-white rounded-xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-lg hover:shadow-xl border border-gray-100 text-center cursor-pointer"
                 >
-                  <motion.div
-                    animate={{ rotate: [0, 5, -5, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-                  >
-                    <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600 mx-auto mb-2 sm:mb-3" />
-                  </motion.div>
+                  <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600 mx-auto mb-2 sm:mb-3" />
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={isInView ? { scale: 1 } : {}}
@@ -781,7 +775,6 @@ function FinalCTASection() {
 export default function HowExAImWorksPage() {
   return (
     <main className="min-h-screen">
-      <ScrollAnimations />
       <Navbar />
       <HeroSection />
       <WalkthroughSection />

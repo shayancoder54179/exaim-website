@@ -1,42 +1,28 @@
-'use client'
-
 import dynamic from 'next/dynamic'
-import Navbar from '@/components/Navbar'
-import ScrollAnimations from '@/components/ScrollAnimations'
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
 import { FileText } from 'lucide-react'
+
+const Navbar = dynamic(() => import('@/components/Navbar'), {
+  ssr: false,
+  loading: () => <div className="h-20" />,
+})
 
 const Footer = dynamic(() => import('@/components/Footer'), {
   loading: () => <div className="min-h-[200px]" />,
 })
 
-// Hero Section
+// Hero Section - Server Component
 function HeroSection() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
-
   return (
-    <section ref={ref} className="section-padding-lg pt-32 md:pt-40 lg:pt-44 bg-gradient-to-br from-primary-50 via-white to-secondary-50 relative overflow-hidden">
+    <section className="section-padding-lg pt-32 md:pt-40 lg:pt-44 bg-gradient-to-br from-primary-50 via-white to-secondary-50 relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
       
       <div className="container-wrapper relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-4xl mx-auto"
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 mb-8 shadow-lg"
-          >
+        <div className="text-center max-w-4xl mx-auto">
+          <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 mb-8 shadow-lg">
             <FileText className="w-8 h-8 md:w-10 md:h-10 text-white" />
-          </motion.div>
+          </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 leading-tight">
             Terms and Conditions
@@ -45,26 +31,18 @@ function HeroSection() {
           <p className="text-lg md:text-xl lg:text-2xl text-gray-700 mb-8 leading-relaxed">
             Effective Date: 1st March 2025 | Last Updated: 1st March 2025
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
 }
 
-// Terms Content Section
+// Terms Content Section - Server Component
 function TermsContentSection() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
-
   return (
-    <section ref={ref} className="section-padding bg-white">
+    <section className="section-padding bg-white">
       <div className="container-wrapper max-w-4xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="prose prose-lg max-w-none"
-        >
+        <div className="prose prose-lg max-w-none">
           {/* Introduction */}
           <div className="mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">1. Introduction</h2>
@@ -223,7 +201,7 @@ function TermsContentSection() {
               </p>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
@@ -232,7 +210,6 @@ function TermsContentSection() {
 export default function TermsAndConditionsPage() {
   return (
     <main className="min-h-screen bg-white">
-      <ScrollAnimations />
       <Navbar />
       <HeroSection />
       <div className="border-b border-gray-100 my-0"></div>
