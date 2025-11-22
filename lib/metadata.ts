@@ -8,18 +8,16 @@ export interface PageMetadataOptions {
   title: string
   description?: string
   path?: string
-  ogImage?: string
   noindex?: boolean
 }
 
 /**
- * Creates complete metadata for a page including Open Graph and Twitter cards
+ * Creates complete metadata for a page including Open Graph tags
  */
 export function createPageMetadata({
   title,
   description,
   path = '/',
-  ogImage = '/og-image.jpg',
   noindex = false,
 }: PageMetadataOptions): Metadata {
   const fullTitle = `${title} | ${siteName}`
@@ -39,21 +37,6 @@ export function createPageMetadata({
       siteName,
       locale: 'en_GB',
       type: 'website',
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: fullTitle,
-      description: fullDescription,
-      creator: '@exaimltd',
-      images: [ogImage],
     },
     robots: noindex
       ? {

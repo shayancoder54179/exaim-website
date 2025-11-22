@@ -23,21 +23,6 @@ export const metadata: Metadata = {
     siteName: 'ExAIm',
     locale: 'en_GB',
     type: 'website',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Book a Demo - ExAIm',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Book a Demo - ExAIm',
-    description: 'Schedule your personalized demo with ExAIm.',
-    creator: '@exaimltd',
-    images: ['/og-image.jpg'],
   },
 }
 

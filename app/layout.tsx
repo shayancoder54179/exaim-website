@@ -33,21 +33,6 @@ export const metadata: Metadata = {
     siteName: 'ExAIm',
     locale: 'en_GB',
     type: 'website',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'ExAIm - AI-Powered Exam Preparation Platform',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'ExAIm - AI-Powered Exam Preparation Platform',
-    description: 'Streamline assessments, automate grading, and boost learning outcomes.',
-    creator: '@exaimltd',
-    images: ['/og-image.jpg'],
   },
   robots: {
     index: true,
@@ -80,7 +65,6 @@ const organizationSchema = {
     areaServed: ['GB', 'AE', 'Worldwide'],
   },
   sameAs: [
-    'https://twitter.com/exaimltd',
     'https://www.linkedin.com/company/exaimltd',
   ],
   address: {

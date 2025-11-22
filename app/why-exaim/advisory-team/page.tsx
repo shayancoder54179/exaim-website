@@ -23,21 +23,6 @@ export const metadata: Metadata = {
     siteName: 'ExAIm',
     locale: 'en_GB',
     type: 'website',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Advisory Team - Why ExAIm',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Advisory Team - Why ExAIm',
-    description: 'Expert guidance from global education leaders.',
-    creator: '@exaimltd',
-    images: ['/og-image.jpg'],
   },
 }
 
