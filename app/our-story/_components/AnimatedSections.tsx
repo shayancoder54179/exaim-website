@@ -19,13 +19,13 @@ export function AnimatedMissionVision() {
             transition={{ duration: 0.6 }}
             className="bg-white rounded-2xl p-8 md:p-10 shadow-lg hover:shadow-xl transition-all border border-gray-100"
           >
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-6">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center mb-6">
               <Target className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4">
               Our Mission
             </h3>
-            <p className="text-gray-600 leading-relaxed text-lg">
+            <p className="text-gray-600 leading-relaxed text-base sm:text-lg">
               To revolutionize exam preparation by making examiner-quality feedback accessible to every student, empowering teachers with powerful tools, and transforming how schools prepare students for success.
             </p>
           </motion.div>
@@ -40,10 +40,10 @@ export function AnimatedMissionVision() {
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-6">
               <Sparkles className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4">
               Our Vision
             </h3>
-            <p className="text-gray-600 leading-relaxed text-lg">
+            <p className="text-gray-600 leading-relaxed text-base sm:text-lg">
               A world where every student has access to personalized, examiner-quality feedback, where teachers can focus on teaching rather than marking, and where data-driven insights drive continuous improvement in education.
             </p>
           </motion.div>
@@ -74,7 +74,7 @@ export function AnimatedValues() {
       icon: Users,
       title: 'Empowerment',
       description: 'We empower teachers and students with tools that make a real difference.',
-      color: 'from-blue-500 to-cyan-500',
+      color: 'from-gray-600 to-gray-800',
     },
     {
       icon: TrendingUp,
@@ -105,10 +105,10 @@ export function AnimatedValues() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 md:mb-20"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 px-4">
             Our Values
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4">
             The principles that guide everything we do at ExAIm.
           </p>
         </motion.div>
@@ -175,7 +175,7 @@ export function AnimatedImpact() {
   ]
 
   return (
-    <section ref={ref} className="section-padding bg-gradient-to-br from-primary-600 to-secondary-600 text-white relative overflow-hidden">
+    <section ref={ref} className="section-padding bg-gradient-to-br from-gray-800 to-gray-900 text-white relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full mix-blend-overlay filter blur-3xl animate-blob" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full mix-blend-overlay filter blur-3xl animate-blob animation-delay-4000" />
@@ -187,10 +187,10 @@ export function AnimatedImpact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 md:mb-20"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 px-4">
             Our Impact
           </h2>
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto px-4">
             Built on a foundation of proven educational excellence.
           </p>
         </motion.div>

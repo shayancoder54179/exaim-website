@@ -10,7 +10,7 @@ const milestones = [
     title: 'Improve ME Institute Founded',
     description: 'An award-winning after-school centre established in the UAE, growing to serve over 1,000 students with 40 dedicated tutors.',
     icon: GraduationCap,
-    color: 'from-blue-500 to-blue-600',
+    color: 'from-gray-600 to-gray-800',
   },
   {
     year: '2015-2020',
@@ -55,17 +55,17 @@ export default function AnimatedTimeline() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 md:mb-20"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 px-4">
             Our Journey
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4">
             From classroom experience to global innovation—discover the milestones that shaped ExAIm.
           </p>
         </motion.div>
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="hidden md:block absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-200 via-green-200 to-primary-200" />
+          <div className="hidden md:block absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-gray-300 via-gray-400 to-gray-500" />
           
           <div className="space-y-12 md:space-y-16">
             {milestones.map((milestone, index) => {
@@ -97,13 +97,13 @@ export default function AnimatedTimeline() {
                     </div>
 
                     {/* Content */}
-                    <div className={`flex-1 bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100 ${
+                    <div className={`flex-1 bg-white rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100 ${
                       isEven ? 'md:ml-auto' : 'md:mr-auto'
                     }`} style={{ maxWidth: '600px' }}>
-                      <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-3">
                         {milestone.title}
                       </h3>
-                      <p className="text-gray-600 leading-relaxed">
+                      <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                         {milestone.description}
                       </p>
                     </div>

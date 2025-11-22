@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic'
 import { Button } from '@/components/ui/button'
 import { motion, useInView } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -132,7 +132,6 @@ function HeroSection() {
 function WalkthroughSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
-  const [activeStep, setActiveStep] = useState(0)
 
   const steps = [
     {
@@ -199,20 +198,6 @@ function WalkthroughSection() {
             See how ExAIm transforms the exam preparation workflow for teachers and students.
           </p>
         </motion.div>
-
-        {/* Progress indicator for mobile */}
-        <div className="flex justify-center gap-2 mb-8 md:hidden">
-          {steps.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setActiveStep(index)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                activeStep === index ? 'w-8 bg-primary-600' : 'w-2 bg-gray-300'
-              }`}
-              aria-label={`Go to step ${index + 1}`}
-            />
-          ))}
-        </div>
 
         {/* Desktop: Vertical timeline layout */}
         <div className="hidden lg:block relative">
@@ -327,31 +312,28 @@ function WalkthroughSection() {
           </div>
         </div>
 
-        {/* Mobile/Tablet: Carousel-style layout */}
+        {/* Mobile/Tablet: All steps visible */}
         <div className="lg:hidden space-y-4 sm:space-y-6 px-4 sm:px-0">
           {steps.map((step, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
-              animate={isInView && activeStep === index ? { opacity: 1, y: 0 } : { opacity: activeStep === index ? 1 : 0.3, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className={`bg-white rounded-2xl overflow-hidden shadow-lg border-2 transition-all duration-300 ${
-                activeStep === index ? 'border-primary-500 shadow-xl' : 'border-gray-100'
-              }`}
-              onClick={() => setActiveStep(index)}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"
             >
               {/* Header */}
-              <div className="p-6">
+              <div className="p-4 sm:p-6">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-md`}>
-                    <step.icon className="w-7 h-7 text-white" />
+                  <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-md flex-shrink-0`}>
+                    <step.icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                   </div>
                   <div className="flex-1">
                     <div className="flex items-baseline gap-2 mb-2">
-                      <span className="text-2xl font-bold text-primary-600">{step.number}</span>
-                      <h3 className="text-xl font-bold text-gray-900 leading-tight">{step.title}</h3>
+                      <span className="text-xl sm:text-2xl font-bold text-primary-600">{step.number}</span>
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 leading-tight">{step.title}</h3>
                     </div>
-                    <p className="text-gray-600 leading-relaxed text-sm">{step.description}</p>
+                    <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{step.description}</p>
                   </div>
                 </div>
               </div>
