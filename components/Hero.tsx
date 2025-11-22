@@ -59,7 +59,7 @@ export default function Hero() {
   const headlineWords = "Improve student attainment with AI-powered exam preparation".split(' ')
 
   return (
-    <section className="relative overflow-visible bg-white section-padding-lg pt-32 md:pt-40 lg:pt-44 pb-16 md:pb-20 lg:pb-24">
+    <section className="relative overflow-visible bg-white section-padding-lg pt-48 sm:pt-44 md:pt-40 lg:pt-44 pb-16 md:pb-20 lg:pb-24">
 
       <motion.div
         className="relative z-10 container-wrapper"
@@ -70,7 +70,7 @@ export default function Hero() {
         <div className="text-center">
           {/* Enhanced Main Headline with Stagger Animation */}
           <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 md:mb-8 lg:mb-10 leading-tight px-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-gray-900 mb-6 md:mb-8 lg:mb-10 leading-[1.1] sm:leading-tight px-3 sm:px-4"
             variants={containerVariants}
             initial="hidden"
             animate={mounted ? "visible" : "hidden"}
@@ -81,7 +81,7 @@ export default function Hero() {
                 <motion.span
                   key={index}
                   variants={textVariants}
-                  className={`inline-block mr-2 ${isAIPowered ? 'gradient-text text-shimmer' : ''}`}
+                  className={`inline-block mr-1.5 sm:mr-2 ${isAIPowered ? 'gradient-text text-shimmer' : ''}`}
                   animate={isAIPowered ? {
                     backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
                   } : {}}
@@ -105,7 +105,7 @@ export default function Hero() {
             variants={itemVariants}
             initial="hidden"
             animate={mounted ? "visible" : "hidden"}
-            className="text-base md:text-lg lg:text-xl text-gray-700 mb-8 md:mb-10 lg:mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 mb-8 md:mb-10 lg:mb-12 max-w-3xl mx-auto leading-relaxed px-4"
           >
             ExAIm uses simulated exam conditions, automated marking, and personalised examiner-level feedback to help every student achieve better results while reducing teacher workload.
           </motion.p>
@@ -130,7 +130,7 @@ export default function Hero() {
                 scale: 0.95,
                 transition: { type: "spring", stiffness: 400, damping: 17 }
               }}
-              className="relative px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-lg text-base md:text-lg font-semibold flex items-center gap-2 overflow-hidden group w-full sm:w-auto justify-center focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-all min-h-[48px]"
+              className="relative px-4 sm:px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-lg text-sm sm:text-base md:text-lg font-semibold flex items-center gap-2 overflow-hidden group w-full sm:w-auto justify-center focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-all min-h-[48px]"
             >
               <motion.div
                 className="absolute inset-0 bg-white/20"
@@ -139,14 +139,14 @@ export default function Hero() {
                 transition={{ duration: 0.6 }}
                 style={{ borderRadius: '50%', x: '-50%', y: '-50%' }}
               />
-              <span className="relative z-10 flex items-center gap-2 text-center">
+              <span className="relative z-10 flex items-center gap-1 sm:gap-2 text-center flex-wrap justify-center">
                 <span className="whitespace-nowrap">Book a Demo</span>
-                <span className="hidden sm:inline whitespace-nowrap">& Start Your 30-Day Free Pilot</span>
+                <span className="hidden md:inline whitespace-nowrap">& Start Your 30-Day Free Pilot</span>
                 <motion.div
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <ArrowRight className="w-5 h-5 flex-shrink-0" />
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
                 </motion.div>
               </span>
             </motion.a>
@@ -161,7 +161,7 @@ export default function Hero() {
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="inline-block bg-white/90 backdrop-blur-sm px-4 md:px-6 py-2 md:py-3 rounded-full text-gray-700 text-sm md:text-base font-medium shadow-md text-center"
+              className="inline-block bg-white/90 backdrop-blur-sm px-3 sm:px-4 md:px-6 py-2 md:py-3 rounded-full text-gray-700 text-xs sm:text-sm md:text-base font-medium shadow-md text-center max-w-[90%] sm:max-w-none"
             >
               Trusted by 5,000+ students across 20 schools worldwide.
             </motion.div>
@@ -172,7 +172,7 @@ export default function Hero() {
             variants={containerVariants}
             initial="hidden"
             animate={mounted ? "visible" : "hidden"}
-            className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-4xl mx-auto"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-4xl mx-auto px-4"
           >
             {stats.map((stat, index) => (
               <motion.div
@@ -185,7 +185,7 @@ export default function Hero() {
                   rotateX: 2,
                   transition: { type: "spring", stiffness: 300, damping: 20 }
                 }}
-                className="relative bg-white/80 backdrop-blur-sm rounded-xl p-6 md:p-8 lg:p-10 shadow-lg hover:shadow-xl hover-glow-intense hover-3d group cursor-pointer overflow-hidden h-full flex flex-col items-center justify-center transition-all duration-300"
+                className="relative bg-white/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-lg hover:shadow-xl hover-glow-intense hover-3d group cursor-pointer overflow-hidden h-full flex flex-col items-center justify-center transition-all duration-300"
               >
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-primary-600/10 to-secondary-600/10 rounded-xl opacity-0 group-hover:opacity-100"
@@ -209,16 +209,16 @@ export default function Hero() {
                   }}
                   className="relative z-10"
                 >
-                  <stat.icon className="w-8 h-8 text-primary-600 mx-auto mb-3" />
+                  <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600 mx-auto mb-2 sm:mb-3" />
                 </motion.div>
                 <motion.div
-                  className="text-3xl font-bold text-gray-900 mb-1 relative z-10"
+                  className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1 relative z-10"
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
                   {stat.value}
                 </motion.div>
-                <div className="text-gray-600 relative z-10">{stat.label}</div>
+                <div className="text-xs sm:text-sm text-gray-600 relative z-10">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>

@@ -45,7 +45,7 @@ export default function Navbar() {
       }`}
     >
       <div className="container-wrapper">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -58,14 +58,14 @@ export default function Navbar() {
                 alt="ExAIm - AI-Powered Exam Preparation Platform" 
                 width={120}
                 height={40}
-                className="h-10 w-auto"
+                className="h-8 sm:h-10 w-auto"
                 priority
               />
             </Link>
           </motion.div>
 
           {/* Enhanced Desktop Menu */}
-          <div className="hidden md:flex items-center gap-4 md:gap-6">
+          <div className="hidden lg:flex items-center gap-4 md:gap-6">
             {navLinks.map((link) => {
               return (
                 <motion.div key={link.href} whileHover={{ y: -2 }}>
@@ -103,11 +103,11 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="lg:hidden p-2 -mr-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={24} className="text-gray-700" /> : <Menu size={24} className="text-gray-700" />}
           </button>
         </div>
       </div>
@@ -118,9 +118,9 @@ export default function Navbar() {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-white border-t shadow-lg"
+          className="lg:hidden bg-white border-t shadow-lg"
         >
-            <div className="px-4 py-6 space-y-4">
+            <div className="px-4 py-4 sm:py-6 space-y-3 sm:space-y-4">
               {navLinks.map((link) => {
                 return (
                   <Link

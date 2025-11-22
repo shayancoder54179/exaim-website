@@ -57,12 +57,12 @@ export default function CorePlatformFeatures() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16 lg:mb-20 px-4"
+          className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20 px-4"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight px-2">
             Core Platform Features
           </h2>
-          <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             Powerful capabilities that make ExAIm the complete solution for exam preparation.
           </p>
         </motion.div>
@@ -70,7 +70,7 @@ export default function CorePlatformFeatures() {
         {/* Main Content - Features Left, Image Right */}
         <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 md:gap-8 lg:gap-12">
           {/* Left Side - Feature Grid 2x2 */}
-          <div className={`grid grid-cols-1 md:grid-cols-2 ${cardGap} w-full lg:w-1/2 lg:flex-shrink-0`}>
+          <div className={`grid grid-cols-1 sm:grid-cols-2 ${cardGap} w-full lg:w-1/2 lg:flex-shrink-0`}>
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -96,9 +96,9 @@ export default function CorePlatformFeatures() {
           </div>
 
           {/* Right Side - Main Product Screenshot */}
-          <div className="w-full lg:w-1/2 lg:flex-shrink-0">
+          <div className="w-full lg:w-1/2 lg:flex-shrink-0 mt-6 lg:mt-0">
             <div className="relative w-full rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200">
-              <div className="relative w-full aspect-video md:aspect-auto">
+              <div className="relative w-full aspect-video lg:aspect-auto">
                 <Image
                   src="/img/preview/preview-image.png"
                   alt="ExAIm AI-powered exam preparation platform interface showing automated marking, analytics dashboard, and student performance insights"

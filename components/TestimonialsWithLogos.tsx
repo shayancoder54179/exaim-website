@@ -52,10 +52,10 @@ export default function TestimonialsWithLogos() {
           transition={{ duration: 0.6 }}
           className="mb-12 md:mb-16 lg:mb-20"
         >
-          <div className="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-xl p-6 md:p-8 lg:p-10 shadow-xl text-white relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+          <div className="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-xl text-white relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 sm:w-48 h-32 sm:h-48 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
             <div className="relative z-10">
-              <Quote className="w-8 h-8 mb-4 opacity-80" />
+              <Quote className="w-6 h-6 sm:w-8 sm:h-8 mb-3 sm:mb-4 opacity-80" />
               <AnimatePresence mode="wait">
                 <motion.blockquote
                   key={currentTestimonial}
@@ -63,13 +63,13 @@ export default function TestimonialsWithLogos() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.4 }}
-                  className="text-base md:text-lg lg:text-xl xl:text-2xl font-medium mb-4 md:mb-6 leading-relaxed"
+                  className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-medium mb-4 md:mb-6 leading-relaxed px-2 sm:px-0"
                 >
                   {testimonials[currentTestimonial].quote}
                 </motion.blockquote>
               </AnimatePresence>
-              <div className="flex items-center justify-between">
-                <div>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
+                <div className="flex-1">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={`name-${currentTestimonial}`}
@@ -78,12 +78,12 @@ export default function TestimonialsWithLogos() {
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="font-semibold text-base">{testimonials[currentTestimonial].name}</div>
-                      <div className="text-white/80 text-sm">{testimonials[currentTestimonial].role}, {testimonials[currentTestimonial].school}</div>
+                      <div className="font-semibold text-sm sm:text-base">{testimonials[currentTestimonial].name}</div>
+                      <div className="text-white/80 text-xs sm:text-sm">{testimonials[currentTestimonial].role}, {testimonials[currentTestimonial].school}</div>
                     </motion.div>
                   </AnimatePresence>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
                   {/* Carousel Indicators */}
                   <div className="flex gap-2">
                     {testimonials.map((_, index) => (
@@ -109,10 +109,10 @@ export default function TestimonialsWithLogos() {
                           (prev) => (prev - 1 + testimonials.length) % testimonials.length
                         )
                       }
-                      className="p-1.5 hover:bg-white/20 rounded-lg transition-colors"
+                      className="p-1.5 sm:p-2 hover:bg-white/20 rounded-lg transition-colors"
                       aria-label="Previous testimonial"
                     >
-                      <ChevronLeft className="w-5 h-5" />
+                      <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                     </motion.button>
                     <motion.button
                       whileHover={{ scale: 1.1 }}
@@ -120,10 +120,10 @@ export default function TestimonialsWithLogos() {
                       onClick={() =>
                         setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
                       }
-                      className="p-1.5 hover:bg-white/20 rounded-lg transition-colors"
+                      className="p-1.5 sm:p-2 hover:bg-white/20 rounded-lg transition-colors"
                       aria-label="Next testimonial"
                     >
-                      <ChevronRight className="w-5 h-5" />
+                      <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                     </motion.button>
                   </div>
                 </div>
@@ -139,7 +139,7 @@ export default function TestimonialsWithLogos() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-center mb-12 md:mb-16 lg:mb-20"
         >
-          <p className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed px-4">
             Trusted by <span className="font-bold text-gray-900">5,000+ students</span> across{' '}
             <span className="font-bold text-gray-900">20+ globally recognised schools</span>
           </p>
@@ -163,7 +163,7 @@ export default function TestimonialsWithLogos() {
                 <motion.div
                   key={`marquee-${index}`}
                   whileHover={{ scale: 1.1 }}
-                  className="flex-shrink-0 h-16 md:h-20 grayscale hover:grayscale-0 transition-all duration-300 px-4"
+                  className="flex-shrink-0 h-12 sm:h-16 md:h-20 grayscale hover:grayscale-0 transition-all duration-300 px-2 sm:px-4"
                 >
                   <Image
                     src={school.logo}

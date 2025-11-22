@@ -160,10 +160,10 @@ export default function OurProductsPage() {
               <span>AI-Powered Platform</span>
             </motion.div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 md:mb-8 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 md:mb-8 leading-tight px-4">
               Our Products
             </h1>
-            <p className="text-lg md:text-xl lg:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8 px-4">
               A comprehensive suite of AI-powered tools designed to streamline exam preparation, reduce teacher workload, and improve student outcomes.
             </p>
             
@@ -171,14 +171,14 @@ export default function OurProductsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap justify-center gap-4"
+              className="flex flex-wrap justify-center gap-4 px-4"
             >
               <Link
                 href="/book-a-demo"
-                className="group px-6 py-3 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-lg font-semibold flex items-center gap-2 hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className="group px-4 sm:px-6 py-3 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-lg text-sm sm:text-base font-semibold flex items-center gap-2 hover:shadow-xl transition-all duration-300 hover:scale-105 w-full sm:w-auto justify-center"
               >
                 <span>Book a Demo</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
           </motion.div>
@@ -188,7 +188,7 @@ export default function OurProductsPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 md:mt-16"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-12 md:mt-16 px-4 sm:px-0"
           >
             {[
               { icon: Users, value: '5,000+', label: 'Active Students' },
@@ -198,11 +198,11 @@ export default function OurProductsPage() {
               <motion.div
                 key={index}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:border-primary-200 transition-all duration-300"
+                className="bg-white rounded-xl p-4 sm:p-6 shadow-lg border border-gray-100 hover:border-primary-200 transition-all duration-300"
               >
-                <stat.icon className="w-8 h-8 text-primary-600 mb-3" />
-                <div className="text-3xl font-bold text-gray-900 mb-1">{stat.value}</div>
-                <div className="text-gray-600">{stat.label}</div>
+                <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600 mb-2 sm:mb-3" />
+                <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">{stat.value}</div>
+                <div className="text-xs sm:text-sm text-gray-600">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -221,10 +221,10 @@ export default function OurProductsPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 md:mb-16 lg:mb-20"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight px-4">
               Core Platform Features
             </h2>
-            <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
               Everything you need to transform exam preparation and assessment in one powerful platform.
             </p>
           </motion.div>
@@ -247,63 +247,63 @@ export default function OurProductsPage() {
                   
                   <div className="relative bg-white">
                     {/* Main Card Content */}
-                    <div className="p-6 md:p-8 lg:p-10">
-                      <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
+                    <div className="p-4 sm:p-6 md:p-8 lg:p-10">
+                      <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8 items-start">
                         {/* Left: Icon and Basic Info */}
-                        <div className="flex-shrink-0">
+                        <div className="flex-shrink-0 w-full sm:w-auto">
                           <motion.div
                             whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
                             transition={{ duration: 0.5 }}
-                            className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${product.gradient} shadow-lg mb-4`}
+                            className={`inline-flex p-3 sm:p-4 rounded-xl bg-gradient-to-r ${product.gradient} shadow-lg mb-4`}
                           >
-                            <Icon className="w-8 h-8 md:w-10 md:h-10 text-white" />
+                            <Icon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white" />
                           </motion.div>
                           
                           {/* Stats Badge */}
-                          <div className="bg-gray-50 rounded-lg p-3 border border-gray-200">
+                          <div className="bg-gray-50 rounded-lg p-2 sm:p-3 border border-gray-200">
                             <div className="text-xs text-gray-500 mb-1">{product.stats.label}</div>
-                            <div className="text-2xl font-bold text-gray-900">{product.stats.value}</div>
+                            <div className="text-xl sm:text-2xl font-bold text-gray-900">{product.stats.value}</div>
                             <div className="text-xs text-gray-600 mt-1">{product.stats.description}</div>
                           </div>
                         </div>
 
                         {/* Content */}
                         <div className="flex-grow min-w-0">
-                          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 leading-tight">
+                          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 leading-tight">
                             {product.title}
                           </h3>
-                          <p className="text-base md:text-lg text-gray-600 mb-4 leading-relaxed">
+                          <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-4 leading-relaxed">
                             {product.description}
                           </p>
 
                           {/* Benefits */}
-                          <div className="flex flex-wrap gap-3 mb-6">
+                          <div className="flex flex-wrap gap-2 sm:gap-3 mb-4 sm:mb-6">
                             {product.benefits.map((benefit, idx) => (
                               <motion.span
                                 key={idx}
                                 whileHover={{ scale: 1.05 }}
-                                className="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm font-medium border border-gray-200"
+                                className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 bg-gray-50 text-gray-700 rounded-lg text-xs sm:text-sm font-medium border border-gray-200"
                               >
-                                <Check className="w-4 h-4 text-green-600" />
-                                {benefit}
+                                <Check className="w-3 h-3 sm:w-4 sm:h-4 text-green-600 flex-shrink-0" />
+                                <span className="whitespace-nowrap">{benefit}</span>
                               </motion.span>
                             ))}
                           </div>
 
                           {/* Features - Always Visible */}
                           <div className="pt-4 border-t border-gray-200">
-                            <h4 className="font-semibold text-gray-900 mb-3">Key Features:</h4>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <h4 className="font-semibold text-sm sm:text-base text-gray-900 mb-3">Key Features:</h4>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                               {product.features.map((feature, idx) => (
                                 <motion.div
                                   key={idx}
                                   initial={{ opacity: 0, x: -10 }}
                                   animate={isProductsInView ? { opacity: 1, x: 0 } : {}}
                                   transition={{ delay: index * 0.1 + idx * 0.05 }}
-                                  className="flex items-start gap-3"
+                                  className="flex items-start gap-2 sm:gap-3"
                                 >
-                                  <Check className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
-                                  <span className="text-gray-700">{feature}</span>
+                                  <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                                  <span className="text-xs sm:text-sm text-gray-700">{feature}</span>
                                 </motion.div>
                               ))}
                             </div>
@@ -329,19 +329,19 @@ export default function OurProductsPage() {
             transition={{ duration: 0.6 }}
             className="text-center text-white"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 px-4">
               Ready to Transform Your Exam Preparation?
             </h2>
-            <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-8 max-w-2xl mx-auto opacity-90 px-4">
               Join thousands of educators using ExAIm to improve student outcomes and reduce workload.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-4 px-4">
               <Link
                 href="/book-a-demo"
-                className="px-8 py-4 bg-white text-primary-600 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-xl flex items-center gap-2"
+                className="px-4 sm:px-8 py-3 sm:py-4 bg-white text-primary-600 rounded-lg text-sm sm:text-base font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-xl flex items-center gap-2 w-full sm:w-auto justify-center"
               >
                 <span>Start Free Trial</span>
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </Link>
             </div>
           </motion.div>

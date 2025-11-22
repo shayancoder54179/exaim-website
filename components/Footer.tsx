@@ -88,13 +88,13 @@ export default function Footer() {
       </div>
 
       <div className="relative z-10 container-wrapper">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 lg:gap-10 mb-12 md:mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 lg:gap-10 mb-12 md:mb-16">
           {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={mounted ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="md:col-span-2 lg:col-span-1"
+            className="sm:col-span-2 lg:col-span-1"
           >
             <div className="inline-block mb-4">
               <Link href="/" className="flex items-center">
@@ -107,7 +107,7 @@ export default function Footer() {
                 />
               </Link>
             </div>
-            <p className="text-sm md:text-base text-gray-300 leading-relaxed mb-4 md:mb-6">
+            <p className="text-xs sm:text-sm md:text-base text-gray-300 leading-relaxed mb-4 md:mb-6">
               AI-powered exam preparation platform for schools worldwide.
             </p>
           </motion.div>
@@ -120,7 +120,7 @@ export default function Footer() {
               animate={mounted ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: sectionIndex * 0.1 }}
             >
-              <h4 className="font-semibold text-white mb-6 md:mb-8 text-base md:text-lg relative">
+              <h4 className="font-semibold text-white mb-4 sm:mb-6 md:mb-8 text-sm sm:text-base md:text-lg relative">
                 {section.title}
                 <motion.div
                   className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-primary-400 to-secondary-400"
@@ -129,7 +129,7 @@ export default function Footer() {
                   transition={{ duration: 0.6, delay: sectionIndex * 0.1 + 0.3 }}
                 />
               </h4>
-              <ul className="space-y-3 md:space-y-4">
+              <ul className="space-y-2 sm:space-y-3 md:space-y-4">
                 {section.links.map((link, linkIndex) => (
                   <motion.li
                     key={link.href}
@@ -139,7 +139,7 @@ export default function Footer() {
                   >
                     <Link
                       href={link.href}
-                      className="group relative text-sm text-gray-300 hover:text-white transition-colors inline-block"
+                      className="group relative text-xs sm:text-sm text-gray-300 hover:text-white transition-colors inline-block"
                     >
                       {link.label}
                       <motion.span
@@ -159,7 +159,7 @@ export default function Footer() {
             animate={mounted ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="font-semibold text-white mb-6 md:mb-8 text-base md:text-lg relative">
+            <h4 className="font-semibold text-white mb-4 sm:mb-6 md:mb-8 text-sm sm:text-base md:text-lg relative">
               Connect
               <motion.div
                 className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-primary-400 to-secondary-400"
@@ -168,7 +168,7 @@ export default function Footer() {
                 transition={{ duration: 0.6, delay: 0.5 }}
               />
             </h4>
-            <ul className="space-y-3 md:space-y-4">
+            <ul className="space-y-2 sm:space-y-3 md:space-y-4">
               {socialLinks.map((social, index) => (
                 <motion.li
                   key={social.href}
@@ -181,7 +181,7 @@ export default function Footer() {
                     target={social.external ? '_blank' : undefined}
                     rel={social.external ? 'noopener noreferrer' : undefined}
                     whileHover={{ x: 5, scale: 1.05 }}
-                    className="flex items-center gap-3 text-sm text-gray-300 hover:text-white transition-colors group"
+                    className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-gray-300 hover:text-white transition-colors group"
                   >
                     <motion.div
                       className="p-2 bg-gray-800 rounded-lg group-hover:bg-gradient-to-r group-hover:from-primary-600 group-hover:to-secondary-600 transition-all"
