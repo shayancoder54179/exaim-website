@@ -83,6 +83,35 @@ const organizationSchema = {
   },
 }
 
+const siteNavigationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SiteNavigationElement',
+  name: 'Main Navigation',
+  url: 'https://www.exaim.ai',
+  hasPart: [
+    {
+      '@type': 'SiteNavigationElement',
+      name: 'How ExAIm Works',
+      url: 'https://www.exaim.ai/how-exaim-works',
+    },
+    {
+      '@type': 'SiteNavigationElement',
+      name: 'Our Products',
+      url: 'https://www.exaim.ai/our-products',
+    },
+    {
+      '@type': 'SiteNavigationElement',
+      name: 'Our Story',
+      url: 'https://www.exaim.ai/our-story',
+    },
+    {
+      '@type': 'SiteNavigationElement',
+      name: 'Get Started',
+      url: 'https://www.exaim.ai/book-a-demo',
+    },
+  ],
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -103,6 +132,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteNavigationSchema) }}
         />
       </head>
       <body className={inter.className}>

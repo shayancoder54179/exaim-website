@@ -35,6 +35,11 @@ const nextConfig = {
         destination: '/book-a-demo',
         permanent: true,
       },
+      {
+        source: '/get-started',
+        destination: '/book-a-demo',
+        permanent: true,
+      },
     ]
   },
   // Security headers

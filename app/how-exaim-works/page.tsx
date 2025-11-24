@@ -49,7 +49,7 @@ function HeroSection() {
           {/* Left Column - Text */}
           <div className="space-y-4 sm:space-y-6 px-4 sm:px-0">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-              How ExAIm works
+              How ExAIm Works
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
               ExAIm uses AI-powered assessments to streamline exam preparation, automate marking, and personalise learning to improve student outcomes. Transform how your school prepares students for GCSE, A-Level, IB, and other curricula. Explore our <Link href="/our-products" className="text-primary-600 hover:text-primary-700 underline font-medium">complete product suite</Link> or learn about our <Link href="/why-exaim/methodology" className="text-primary-600 hover:text-primary-700 underline font-medium">proven methodology</Link>.

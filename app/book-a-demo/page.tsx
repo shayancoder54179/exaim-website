@@ -14,14 +14,14 @@ const Footer = dynamic(() => import('@/components/Footer'), {
 })
 
 export const metadata: Metadata = {
-  title: 'Book a Demo - Schedule Your Personalized Demo',
-  description: 'Book a personalized demo to explore how ExAIm can support your school, reduce teacher workload, and improve student attainment. See how AI-powered exam preparation can transform your school.',
+  title: 'Get Started - Book a Demo',
+  description: 'ExAIm automates grading, enhances feedback, and provides comprehensive analytics. Book a demo to see how our AI-powered exam preparation platform can transform your school.',
   alternates: {
     canonical: 'https://www.exaim.ai/book-a-demo',
   },
   openGraph: {
-    title: 'Book a Demo - ExAIm',
-    description: 'Schedule your personalized demo with ExAIm to see how AI-powered exam preparation can transform your school.',
+    title: 'Get Started - Book a Demo',
+    description: 'ExAIm automates grading, enhances feedback, and provides comprehensive analytics. Book a demo to see how our AI-powered exam preparation platform can transform your school.',
     url: 'https://www.exaim.ai/book-a-demo',
     siteName: 'ExAIm',
     locale: 'en_GB',

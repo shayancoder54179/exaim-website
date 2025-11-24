@@ -17,7 +17,7 @@ export default function AnimatedHero() {
             Our Products
           </h1>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8 px-4">
-            A comprehensive suite of AI-powered tools designed to streamline exam preparation, reduce teacher workload, and improve student outcomes.
+            Discover ExAIm's comprehensive suite of AI-powered exam preparation tools: assignment creation, automated marking, analytics, and student exam interface.
           </p>
           
           <div className="flex flex-wrap justify-center gap-4 px-4">
