@@ -91,6 +91,16 @@ export default function Navbar() {
               )
             })}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <a
+                href="https://portal.exaim.ai/auth/login?callbackUrl=%2Fdashboard"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative px-6 py-3 text-primary-600 border-2 border-primary-600 rounded-lg font-medium transition-all hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+              >
+                Login
+              </a>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/book-a-demo"
                 prefetch={true}
@@ -138,6 +148,15 @@ export default function Navbar() {
                   </Link>
                 )
               })}
+              <a
+                href="https://portal.exaim.ai/auth/login?callbackUrl=%2Fdashboard"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block px-6 py-3 text-primary-600 border-2 border-primary-600 rounded-lg text-center font-medium transition-all hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Login
+              </a>
               <Link
                 href="/book-a-demo"
                 prefetch={true}
