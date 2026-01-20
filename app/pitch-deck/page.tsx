@@ -2,7 +2,8 @@
 
 import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
-import { FileText } from 'lucide-react'
+import { FileText, ExternalLink } from 'lucide-react'
+import { useState, useEffect } from 'react'
 
 const Navbar = dynamic(() => import('@/components/Navbar'), {
   loading: () => <div className="h-20" />,
@@ -13,9 +14,24 @@ const Footer = dynamic(() => import('@/components/Footer'), {
 })
 
 export default function PitchDeckPage() {
-  // Properly encode the PDF filename for the iframe
-  // Enable scrolling and remove toolbar restrictions for better viewing
-  const pdfUrl = encodeURI('/ExAIm_Investor Deck (1).pdf') + '#toolbar=1&navpanes=0&scrollbar=1&view=FitH'
+  const [isMobile, setIsMobile] = useState(false)
+  const pdfUrl = '/ExAIm_Investor Deck (1).pdf'
+  // Disable download: toolbar=0 removes download button, but we keep scrollbar for navigation
+  const pdfUrlWithParams = encodeURI(pdfUrl) + '#toolbar=0&navpanes=0&scrollbar=1&view=FitH'
+  
+  useEffect(() => {
+    // Detect mobile device
+    const checkMobile = () => {
+      const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera
+      const isMobileDevice = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase())
+      const isSmallScreen = window.innerWidth < 768
+      setIsMobile(isMobileDevice || isSmallScreen)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
   
   return (
     <main className="min-h-screen bg-gray-50 pb-20">
@@ -67,13 +83,48 @@ export default function PitchDeckPage() {
                 </span>
               </div>
             </div>
-            <div className="relative w-full" style={{ minHeight: '90vh', height: '90vh', overflow: 'auto' }}>
-              <iframe
-                src={pdfUrl}
-                className="w-full h-full border-0"
-                title="ExAIm Investor Pitch Deck"
-                allowFullScreen
-              />
+            <div className="relative w-full" style={{ minHeight: '90vh', height: '90vh' }}>
+              {/* Mobile: Show button to open PDF */}
+              {isMobile && (
+                <div className="flex flex-col items-center justify-center h-full p-8 space-y-6">
+                  <div className="text-center space-y-4">
+                    <FileText className="w-16 h-16 mx-auto text-primary-500" />
+                    <h3 className="text-xl font-semibold text-gray-900">View Pitch Deck</h3>
+                    <p className="text-gray-600 max-w-md">
+                      For the best viewing experience on mobile, please open the PDF in your browser.
+                    </p>
+                  </div>
+                  <a
+                    href={pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors shadow-lg"
+                  >
+                    <ExternalLink className="w-5 h-5" />
+                    Open PDF in Browser
+                  </a>
+                </div>
+              )}
+              
+              {/* Desktop: Show PDF viewer */}
+              {!isMobile && (
+                <>
+                  <object
+                    data={pdfUrlWithParams}
+                    type="application/pdf"
+                    className="w-full h-full"
+                    aria-label="ExAIm Investor Pitch Deck"
+                  >
+                    {/* Fallback to iframe if object doesn't work */}
+                    <iframe
+                      src={pdfUrlWithParams}
+                      className="w-full h-full border-0"
+                      title="ExAIm Investor Pitch Deck"
+                      allowFullScreen
+                    />
+                  </object>
+                </>
+              )}
             </div>
           </motion.div>
           
