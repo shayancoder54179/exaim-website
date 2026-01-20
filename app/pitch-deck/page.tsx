@@ -14,10 +14,11 @@ const Footer = dynamic(() => import('@/components/Footer'), {
 
 export default function PitchDeckPage() {
   // Properly encode the PDF filename for the iframe
-  const pdfUrl = encodeURI('/ExAIm_Investor Deck (1).pdf') + '#toolbar=0&navpanes=0&scrollbar=1'
+  // Enable scrolling and remove toolbar restrictions for better viewing
+  const pdfUrl = encodeURI('/ExAIm_Investor Deck (1).pdf') + '#toolbar=1&navpanes=0&scrollbar=1&view=FitH'
   
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-gray-50 pb-20">
       <Navbar />
       
       {/* Hero Section */}
@@ -48,7 +49,7 @@ export default function PitchDeckPage() {
       </section>
 
       {/* PDF Viewer Section */}
-      <section className="section-padding">
+      <section className="section-padding pb-20">
         <div className="container-wrapper">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -66,12 +67,12 @@ export default function PitchDeckPage() {
                 </span>
               </div>
             </div>
-            <div className="relative w-full" style={{ minHeight: '80vh', height: 'calc(100vh - 300px)' }}>
+            <div className="relative w-full" style={{ minHeight: '90vh', height: '90vh', overflow: 'auto' }}>
               <iframe
                 src={pdfUrl}
                 className="w-full h-full border-0"
                 title="ExAIm Investor Pitch Deck"
-                style={{ minHeight: '800px' }}
+                allowFullScreen
               />
             </div>
           </motion.div>
@@ -81,7 +82,7 @@ export default function PitchDeckPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-6 text-center"
+            className="mt-8 mb-12 text-center"
           >
             <p className="text-sm text-gray-500">
               This document is for viewing purposes only. For questions or more information, please{' '}
