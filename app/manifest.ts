@@ -4,11 +4,11 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'ExAIm - AI-Powered Exam Preparation Platform',
     short_name: 'ExAIm',
-    description: 'AI-powered exam preparation platform for schools. Automated marking, personalised feedback, and comprehensive analytics.',
+    description: 'AI-powered questions, instant grading, and a personal tutor — built for GCSE and IGCSE students on the British curriculum.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#ffffff',
-    theme_color: '#6366f1',
+    background_color: '#0F0E1A',
+    theme_color: '#4F46E5',
     icons: [
       {
         src: '/favicon.png',

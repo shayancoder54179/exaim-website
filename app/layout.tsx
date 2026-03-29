@@ -1,47 +1,51 @@
 import type { Metadata } from 'next'
-import { Inter, Figtree } from 'next/font/google'
-import Script from 'next/script'
-import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import Script from 'next/script'
+import ThemeProvider from '@/components/ThemeProvider'
 import './globals.css'
-import { cn } from "@/lib/utils";
 
-const figtree = Figtree({subsets:['latin'],variable:'--font-sans'});
-
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
+  variable: '--font-inter',
   display: 'swap',
-  preload: true,
 })
 
 export const metadata: Metadata = {
-  title: 'ExAIm - Improve Student Attainment with AI-Powered Exam Preparation',
-  description: 'AI-powered exam preparation platform for schools. Automated marking, personalised feedback, and comprehensive analytics. Trusted by 5,000+ students across 20+ schools.',
-  keywords: 'exam preparation, AI education, automated grading, GCSE, A-Level, IB, school assessment platform, student analytics, exam practice, British curriculum, International Baccalaureate',
-  authors: [{ name: 'ExAIm' }],
-  creator: 'ExAIm',
-  publisher: 'ExAIm',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
   metadataBase: new URL('https://www.exaim.ai'),
-  alternates: {
-    canonical: '/',
+  title: {
+    default: 'ExAIm — AI-Powered Exam Prep for GCSE & IGCSE',
+    template: '%s | ExAIm',
   },
+  description:
+    'AI-powered questions, instant grading, and a personal tutor — built for GCSE and IGCSE students on the British curriculum.',
+  keywords: [
+    'ExAIm',
+    'AI exam preparation',
+    'GCSE revision',
+    'IGCSE revision',
+    'AQA',
+    'Edexcel',
+    'British curriculum',
+    'AI grading',
+    'exam practice',
+    'AI tutor',
+  ],
   openGraph: {
-    title: 'ExAIm - Improve Student Attainment with AI-Powered Exam Preparation',
-    description: 'AI-powered exam preparation platform for schools. Automated marking, personalised feedback, and comprehensive analytics. Trusted by 5,000+ students across 20+ schools.',
+    type: 'website',
+    locale: 'en_GB',
     url: 'https://www.exaim.ai',
     siteName: 'ExAIm',
-    locale: 'en_GB',
-    type: 'website',
+    title: 'ExAIm — AI-Powered Exam Prep for GCSE & IGCSE',
+    description:
+      'AI-powered questions, instant grading, and a personal tutor — built for GCSE and IGCSE students on the British curriculum.',
   },
   twitter: {
-    card: 'summary',
-    title: 'ExAIm - Improve Student Attainment with AI-Powered Exam Preparation',
-    description: 'AI-powered exam preparation platform for schools. Automated marking, personalised feedback, and comprehensive analytics.',
+    card: 'summary_large_image',
+    title: 'ExAIm — AI-Powered Exam Prep for GCSE & IGCSE',
+    description:
+      'AI-powered questions, instant grading, and a personal tutor — built for GCSE and IGCSE students on the British curriculum.',
   },
   robots: {
     index: true,
@@ -54,98 +58,26 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    // Add verification codes here when available
-  },
-}
-
-const organizationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'ExAIm',
-  url: 'https://www.exaim.ai',
-  logo: 'https://www.exaim.ai/logo/logo.png',
-  description: 'AI-powered exam preparation platform for schools',
-  foundingDate: '2021',
-  contactPoint: {
-    '@type': 'ContactPoint',
-    email: 'contact@exaim.ai',
-    contactType: 'Customer Service',
-    areaServed: ['GB', 'AE', 'Worldwide'],
-  },
-  sameAs: [
-    'https://www.linkedin.com/company/exaimltd',
-  ],
-  address: {
-    '@type': 'PostalAddress',
-    addressCountry: 'GB',
-    addressLocality: 'Aylesbury',
-    addressRegion: 'Buckinghamshire',
-    postalCode: 'HP18 0RA',
-    streetAddress: '2 Crossways Business Centre, Bicester Road, Kingswood',
-  },
-}
-
-const siteNavigationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'SiteNavigationElement',
-  name: 'Main Navigation',
-  url: 'https://www.exaim.ai',
-  hasPart: [
-    {
-      '@type': 'SiteNavigationElement',
-      name: 'How ExAIm Works',
-      url: 'https://www.exaim.ai/how-exaim-works',
-    },
-    {
-      '@type': 'SiteNavigationElement',
-      name: 'Our Products',
-      url: 'https://www.exaim.ai/our-products',
-    },
-    {
-      '@type': 'SiteNavigationElement',
-      name: 'Our Story',
-      url: 'https://www.exaim.ai/our-story',
-    },
-    {
-      '@type': 'SiteNavigationElement',
-      name: 'Get Started',
-      url: 'https://www.exaim.ai/book-a-demo',
-    },
-  ],
 }
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode
-}) {
+}>) {
   return (
-    <html lang="en-GB" className={cn("scroll-smooth", "font-sans", figtree.variable)}>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
-        {/* Resource hints for performance */}
-        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        <link rel="icon" href="/favicon.png" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        
-        <link rel="icon" href="/favicon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/favicon.png" />
-        <link rel="canonical" href="https://www.exaim.ai" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteNavigationSchema) }}
-        />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
       </head>
-      <body className={inter.className}>
+      <body className="min-h-screen bg-brand-bg font-sans">
+        <ThemeProvider>
         {children}
-        <SpeedInsights />
+        </ThemeProvider>
         <Analytics />
-        {/* Google Analytics - Loaded after page load to prevent render blocking */}
+        <SpeedInsights />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-MSJ492NVMG"
           strategy="afterInteractive"
@@ -162,4 +94,3 @@ export default function RootLayout({
     </html>
   )
 }
-

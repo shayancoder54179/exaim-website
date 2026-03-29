@@ -1,8 +1,16 @@
 import { MetadataRoute } from 'next'
+import { posts } from './blog/posts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.exaim.ai'
   const now = new Date()
+
+  const blogPosts = posts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
 
   return [
     {
@@ -12,60 +20,41 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/our-products`,
+      url: `${baseUrl}/pricing`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/how-exaim-works`,
+      url: `${baseUrl}/how-it-works`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
+    {
+      url: `${baseUrl}/for-schools`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    ...blogPosts,
     {
       url: `${baseUrl}/our-story`,
       lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/book-a-demo`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/why-exaim/methodology`,
-      lastModified: now,
-      changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/why-exaim/security`,
+      url: `${baseUrl}/contact`,
       lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.6,
     },
-    {
-      url: `${baseUrl}/why-exaim/advisory-team`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/privacy-policy`,
-      lastModified: now,
-      changeFrequency: 'yearly',
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/terms-and-conditions`,
-      lastModified: now,
-      changeFrequency: 'yearly',
-      priority: 0.5,
-    },
-    // Case studies will be added dynamically when generateStaticParams is implemented
   ]
 }
-

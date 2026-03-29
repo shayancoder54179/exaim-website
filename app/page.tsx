@@ -1,173 +1,306 @@
 'use client'
 
-import dynamic from 'next/dynamic'
-import Hero from '@/components/Hero'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { ArrowRight, Brain, Clock, MessageSquare, Sparkles, Trophy, BookOpen } from 'lucide-react'
 import Navbar from '@/components/Navbar'
-import ScrollAnimations from '@/components/ScrollAnimations'
-import StructuredData from '@/components/StructuredData'
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { BookOpen, Clock, Zap, BarChart3, Target } from 'lucide-react'
+import Footer from '@/components/Footer'
+import SocialProofMarquee from '@/components/SocialProofMarquee'
+import StudentDashboardMockup from '@/components/mockups/StudentDashboardMockup'
+import QuestionMockup from '@/components/mockups/QuestionMockup'
+import AceChatMockup from '@/components/mockups/AceChatMockup'
+import GradebookMockup from '@/components/mockups/GradebookMockup'
+import GamificationMockup from '@/components/mockups/GamificationMockup'
+import CurriculumSection from '@/components/CurriculumSection'
+import TestimonialsSection from '@/components/TestimonialsSection'
 
-// Lazy load below-the-fold components
-const CorePlatformFeatures = dynamic(() => import('@/components/CorePlatformFeatures'), {
-  loading: () => <div className="min-h-[600px]" />,
-})
-const Pricing = dynamic(() => import('@/components/Pricing'), {
-  loading: () => <div className="min-h-[600px]" />,
-})
-const FinalCTA = dynamic(() => import('@/components/FinalCTA'), {
-  loading: () => <div className="min-h-[300px]" />,
-})
-const Footer = dynamic(() => import('@/components/Footer'), {
-  loading: () => <div className="min-h-[200px]" />,
-})
-const TestimonialsWithLogos = dynamic(() => import('@/components/TestimonialsWithLogos'), {
-  loading: () => <div className="min-h-[400px]" />,
-})
+const fadeUp = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-60px' },
+  transition: { duration: 0.5 },
+}
 
-function WorkflowOverviewSection() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+const stagger = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+}
 
-  const steps = [
-    {
-      icon: BookOpen,
-      label: 'Assign',
-      description: 'Assign curriculum-aligned tasks',
-      color: 'from-blue-500 to-blue-600',
-    },
-    {
-      icon: Clock,
-      label: 'Practice',
-      description: 'Students practice under exam conditions',
-      color: 'from-green-500 to-green-600',
-    },
-    {
-      icon: Zap,
-      label: 'AI Marking',
-      description: 'Instant, examiner-style feedback',
-      color: 'from-primary-500 to-primary-600',
-    },
-    {
-      icon: BarChart3,
-      label: 'Insights',
-      description: 'Detailed analytics and gap analysis',
-      color: 'from-orange-500 to-orange-600',
-    },
-    {
-      icon: Target,
-      label: 'Intervention',
-      description: 'Targeted teaching and improvement',
-      color: 'from-red-500 to-red-600',
-    },
-  ]
-
+export default function HomePage() {
   return (
-    <section ref={ref} className="section-padding bg-white">
-      <div className="container-wrapper">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16 lg:mb-20"
-        >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight px-4">
-            A complete exam preparation loop
-          </h2>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
-            ExAIm connects assignments, grading, analytics, and feedback in one seamless platform, creating a continuous cycle of improvement.
-          </p>
-        </motion.div>
+    <>
+      <Navbar />
 
-        {/* Workflow Diagram */}
-        <div className="bg-gray-50 rounded-xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-lg border border-gray-100">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-0">
-            {steps.map((step, index) => (
-              <div key={index} className="flex flex-col md:flex-row items-center w-full md:w-auto md:flex-1 relative">
-                {/* Step Card */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="flex flex-col items-center text-center space-y-2 sm:space-y-3 relative z-10 cursor-pointer w-full p-3 sm:p-4 md:p-5 lg:p-6"
+      {/* ── Hero ── */}
+      <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
+        {/* Background gradient orbs */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-600/8 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-1/4 w-80 h-80 bg-purple-600/6 rounded-full blur-3xl" />
+
+        <div className="container-wrapper relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Copy */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-text leading-[1.1] tracking-tight">
+                Exam prep that knows{' '}
+                <span className="gradient-text">what you need</span>
+              </h1>
+              <p className="mt-5 text-lg text-brand-muted leading-relaxed max-w-lg">
+                AI-powered questions, instant grading, and a personal tutor — built for GCSE and IGCSE students on the British curriculum.
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                <a
+                  href="https://app.exaim.com/sign-up"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg transition-colors duration-200"
                 >
-                  <motion.div
-                    className={`w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg transition-shadow duration-300 hover:shadow-xl flex-shrink-0`}
-                    whileHover={{ rotate: [0, -5, 5, -5, 0], transition: { duration: 0.5 } }}
-                  >
-                    <step.icon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-white" />
-                  </motion.div>
-                  <div className="w-full">
-                    <h3 className="font-semibold text-gray-900 text-xs sm:text-sm md:text-base lg:text-lg mb-1 md:mb-2">
-                      {step.label}
-                    </h3>
-                    <p className="text-xs sm:text-sm md:text-sm text-gray-600 max-w-[140px] sm:max-w-[160px] md:max-w-[140px] lg:max-w-[160px] mx-auto leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-                </motion.div>
+                  Start for free
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+                <Link
+                  href="/for-schools"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-brand-text bg-black/5 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10 border border-brand-border rounded-lg transition-colors duration-200"
+                >
+                  Book a school demo
+                </Link>
               </div>
+            </motion.div>
+
+            {/* Mockup */}
+            <div className="lg:pl-4">
+              <StudentDashboardMockup />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Social Proof ── */}
+      <SocialProofMarquee />
+
+      {/* ── Problem → Solution ── */}
+      <section className="section-padding">
+        <div className="container-wrapper">
+          <motion.div {...fadeUp} className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-text">
+              The problems with traditional revision
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-5">
+            {[
+              {
+                icon: Brain,
+                problem: 'Revision without direction',
+                solution: 'ExAIm generates curriculum-aligned questions instantly.',
+                color: 'text-indigo-400 bg-indigo-400/10',
+              },
+              {
+                icon: Clock,
+                problem: 'Feedback that arrives too late',
+                solution: 'AI grades essays in seconds with examiner-level detail.',
+                color: 'text-purple-400 bg-purple-400/10',
+              },
+              {
+                icon: MessageSquare,
+                problem: 'Studying alone without support',
+                solution: 'Ace, your AI tutor, is available 24/7.',
+                color: 'text-emerald-400 bg-emerald-400/10',
+              },
+            ].map((card, i) => (
+              <motion.div
+                key={card.problem}
+                {...stagger}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="glass-card-hover p-6"
+              >
+                <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-4 ${card.color}`}>
+                  <card.icon className="w-5 h-5" />
+                </div>
+                <h3 className="text-base font-semibold text-brand-text mb-2">{card.problem}</h3>
+                <p className="text-sm text-brand-muted leading-relaxed">{card.solution}</p>
+              </motion.div>
             ))}
           </div>
         </div>
-      </div>
-    </section>
-  )
-}
+      </section>
 
-const productSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'ExAIm',
-  applicationCategory: 'EducationalApplication',
-  operatingSystem: 'Web',
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'GBP',
-    availability: 'https://schema.org/InStock',
-  },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.8',
-    reviewCount: '20',
-  },
-  description: 'AI-powered exam preparation platform for schools. Automated marking, personalised feedback, and comprehensive analytics. Trusted by 5,000+ students across 20+ schools.',
-  featureList: [
-    'AI-powered marking for open-ended answers',
-    'Exam-board aligned feedback',
-    'Comprehensive analytics and insights',
-    'Student exam interface',
-    'Assignment and assessment creation',
-  ],
-  screenshot: 'https://www.exaim.ai/img/preview/preview-image.png',
-  url: 'https://www.exaim.ai',
-  author: {
-    '@type': 'Organization',
-    name: 'ExAIm',
-    url: 'https://www.exaim.ai',
-  },
-}
+      {/* ── Curriculum ── */}
+      <CurriculumSection />
 
-export default function Home() {
-  return (
-    <main className="min-h-screen bg-white">
-      <StructuredData data={productSchema} />
-      <ScrollAnimations />
-      <Navbar />
-      <Hero />
-      <div className="border-b border-gray-100 my-0"></div>
-      <CorePlatformFeatures />
-      <div className="border-b border-gray-100 my-0"></div>
-      <WorkflowOverviewSection />
-      <div className="border-b border-gray-100 my-0"></div>
-      <TestimonialsWithLogos />
-      <div className="border-b border-gray-100 my-0"></div>
-      <Pricing />
-      <FinalCTA />
+      {/* ── Features ── */}
+      <section id="features" className="section-padding">
+        <div className="container-wrapper">
+          <motion.div {...fadeUp} className="text-center mb-16">
+            <p className="text-sm font-medium text-indigo-400 mb-2">Platform</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-text">
+              Everything students and teachers need
+            </h2>
+          </motion.div>
+
+          {/* Feature 1 — AI Question Generation */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
+            <motion.div {...fadeUp}>
+              <div className="flex items-center gap-2 mb-3">
+                <BookOpen className="w-5 h-5 text-indigo-400" />
+                <span className="text-sm font-medium text-indigo-400">AI Question Generation</span>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-brand-text mb-4">
+                Curriculum-aligned questions in seconds
+              </h3>
+              <p className="text-brand-muted leading-relaxed mb-4">
+                Generate exam-style questions tailored to any GCSE or IGCSE topic. Choose the subject, exam board, and difficulty — ExAIm handles the rest.
+              </p>
+              <ul className="space-y-2">
+                {['AQA and Edexcel aligned', 'Supports 2–12 mark questions', 'AI grading with examiner-level feedback'].map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-sm text-brand-muted">
+                    <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+            <motion.div {...fadeUp} transition={{ delay: 0.1 }}>
+              <QuestionMockup />
+            </motion.div>
+          </div>
+
+          {/* Feature 2 — Ace AI Companion */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
+            <motion.div {...fadeUp} className="order-2 lg:order-1" transition={{ delay: 0.1 }}>
+              <AceChatMockup />
+            </motion.div>
+            <motion.div {...fadeUp} className="order-1 lg:order-2">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="w-5 h-5 text-purple-400" />
+                <span className="text-sm font-medium text-purple-400">Ace AI Companion</span>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-brand-text mb-4">
+                A personal tutor that never sleeps
+              </h3>
+              <p className="text-brand-muted leading-relaxed mb-4">
+                Ace explains concepts, breaks down mark schemes, and helps students understand where they went wrong — available 24/7.
+              </p>
+              <ul className="space-y-2">
+                {['Powered by Claude (Anthropic)', 'Context-aware explanations', 'Safe, moderated responses'].map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-sm text-brand-muted">
+                    <div className="w-1.5 h-1.5 rounded-full bg-purple-500" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+
+          {/* Feature 3 — Teacher Gradebook */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
+            <motion.div {...fadeUp}>
+              <div className="flex items-center gap-2 mb-3">
+                <BookOpen className="w-5 h-5 text-emerald-400" />
+                <span className="text-sm font-medium text-emerald-400">Teacher Gradebook</span>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-brand-text mb-4">
+                Track every student, every score
+              </h3>
+              <p className="text-brand-muted leading-relaxed mb-4">
+                A complete view of student performance across all exams. Colour-coded scores make it easy to spot who needs help.
+              </p>
+              <ul className="space-y-2">
+                {['Colour-coded performance bands', 'Retake tracking', 'Export-ready analytics'].map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-sm text-brand-muted">
+                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+            <motion.div {...fadeUp} transition={{ delay: 0.1 }}>
+              <GradebookMockup />
+            </motion.div>
+          </div>
+
+          {/* Feature 4 — Gamification */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <motion.div {...fadeUp} className="order-2 lg:order-1" transition={{ delay: 0.1 }}>
+              <GamificationMockup />
+            </motion.div>
+            <motion.div {...fadeUp} className="order-1 lg:order-2">
+              <div className="flex items-center gap-2 mb-3">
+                <Trophy className="w-5 h-5 text-orange-400" />
+                <span className="text-sm font-medium text-orange-400">Gamification</span>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-brand-text mb-4">
+                Make revision something they want to do
+              </h3>
+              <p className="text-brand-muted leading-relaxed mb-4">
+                XP, streaks, levels, and achievement badges turn exam prep into a daily habit. Students stay motivated without being told to.
+              </p>
+              <ul className="space-y-2">
+                {['XP and levelling system', 'Daily streaks with freeze protection', 'Unlockable achievement badges'].map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-sm text-brand-muted">
+                    <div className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Testimonials ── */}
+      <TestimonialsSection />
+
+      {/* ── Pricing Teaser ── */}
+      <section className="section-padding-sm">
+        <div className="container-wrapper">
+          <motion.div {...fadeUp} className="text-center">
+            <p className="text-lg md:text-xl text-brand-text font-medium">
+              Free for students in partner schools. From $5/mo for independent learners.
+            </p>
+            <Link
+              href="/pricing"
+              className="inline-flex items-center gap-2 mt-4 text-sm text-indigo-400 hover:text-indigo-300 transition-colors font-medium"
+            >
+              See pricing
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── For Schools CTA ── */}
+      <section className="section-padding">
+        <div className="container-wrapper">
+          <motion.div
+            {...fadeUp}
+            className="relative rounded-2xl overflow-hidden p-8 md:p-14 text-center"
+          >
+            {/* Gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/20 via-brand-surface to-purple-600/10 border border-brand-border rounded-2xl" />
+            <div className="relative z-10">
+              <h2 className="text-2xl md:text-3xl font-bold text-brand-text mb-3">
+                Bring ExAIm to your school
+              </h2>
+              <p className="text-brand-muted mb-6 max-w-md mx-auto">
+                Students get free access. Deploy in minutes.
+              </p>
+              <Link
+                href="/for-schools"
+                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg transition-colors duration-200"
+              >
+                Talk to us
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       <Footer />
-    </main>
+    </>
   )
 }

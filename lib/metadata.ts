@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 const baseUrl = 'https://www.exaim.ai'
 const siteName = 'ExAIm'
-const defaultDescription = 'AI-powered exam preparation platform for schools. Automated marking, personalised feedback, and comprehensive analytics. Trusted by 5,000+ students across 20+ schools.'
+const defaultDescription = 'AI-powered questions, instant grading, and a personal tutor — built for GCSE and IGCSE students on the British curriculum. Trusted by 5,000+ students across 20+ schools.'
 
 export interface PageMetadataOptions {
   title: string

@@ -27,18 +27,28 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/terms-and-condition',
-        destination: '/terms-and-conditions',
+        source: '/demo',
+        destination: '/for-schools',
         permanent: true,
       },
       {
-        source: '/demo',
-        destination: '/book-a-demo',
+        source: '/book-a-demo',
+        destination: '/for-schools',
         permanent: true,
       },
       {
         source: '/get-started',
-        destination: '/book-a-demo',
+        destination: '/pricing',
+        permanent: true,
+      },
+      {
+        source: '/our-products',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/how-exaim-works',
+        destination: '/',
         permanent: true,
       },
     ]

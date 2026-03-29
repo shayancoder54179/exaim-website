@@ -1,252 +1,278 @@
-import dynamic from 'next/dynamic'
-import { Shield } from 'lucide-react'
+'use client'
 
-const Navbar = dynamic(() => import('@/components/Navbar'), {
-  loading: () => <div className="h-20" />,
-})
+import { useEffect, useState } from 'react'
+import { ArrowUp } from 'lucide-react'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
-const Footer = dynamic(() => import('@/components/Footer'), {
-  loading: () => <div className="min-h-[200px]" />,
-})
+function BackToTop() {
+  const [visible, setVisible] = useState(false)
 
-// Hero Section - Server Component
-function HeroSection() {
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 300)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  if (!visible) return null
+
   return (
-    <section className="section-padding-lg pt-32 md:pt-40 lg:pt-44 bg-gradient-to-br from-primary-50 via-white to-secondary-50 relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
-      
-      <div className="container-wrapper relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
-          <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 mb-8 shadow-lg">
-            <Shield className="w-8 h-8 md:w-10 md:h-10 text-white" />
-          </div>
-          
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-            Privacy Policy & GDPR Compliance
-          </h1>
-          
-          <p className="text-lg md:text-xl lg:text-2xl text-gray-700 mb-8 leading-relaxed">
-            Effective Date: 1st March 2025 | Last Updated: 1st March 2025
-          </p>
-        </div>
-      </div>
-    </section>
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      className="fixed bottom-6 right-6 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-indigo-600 text-white shadow-lg transition-all hover:bg-indigo-500 hover:scale-105"
+      aria-label="Back to top"
+    >
+      <ArrowUp className="h-5 w-5" />
+    </button>
   )
 }
 
-// Privacy Policy Content Section - Server Component
-function PrivacyPolicyContent() {
+/* ── Shared styles ── */
+const sectionHeading =
+  'text-xl font-semibold text-[var(--brand-text)] border-l-4 border-indigo-500 pl-4'
+const subHeading =
+  'text-lg font-semibold text-[var(--brand-text)] mt-6 mb-3'
+const body = 'text-base leading-relaxed text-[var(--brand-muted)]'
+const link =
+  'text-indigo-400 hover:underline hover:text-indigo-300 transition-colors'
+const list = 'list-disc pl-6 space-y-2 text-base leading-relaxed text-[var(--brand-muted)]'
+const infoBox =
+  'rounded-xl p-6 border border-[var(--brand-border)] bg-[var(--brand-surface)]'
+
+export default function PrivacyPolicyPage() {
   return (
-    <section className="section-padding bg-white">
-      <div className="container-wrapper max-w-4xl">
-        <div className="prose prose-lg max-w-none">
-          {/* Introduction */}
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">1. Introduction</h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              ExAIm Limited ("ExAIm," "we," "us," or "our") is registered in England and Wales (ICO Registration Number ZB842876) and operates internationally, including Dubai, UAE, holding a valid Technology License in Dubai. ExAIm is committed to safeguarding the privacy and security of our business-to-business (B2B) clients, educational institutions ("Institutions"), and their administrators, teachers, and students ("End Users").
+    <main className="min-h-screen bg-[var(--brand-bg)]">
+      <Navbar />
+
+      {/* ── Hero ── */}
+      <section className="relative pt-32 pb-12 md:pt-40 md:pb-16 overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-600/8 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-1/4 w-80 h-80 bg-purple-600/6 rounded-full blur-3xl" />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <span className="inline-block rounded-full bg-indigo-500/10 border border-indigo-500/20 px-4 py-1.5 text-sm font-medium text-indigo-400 mb-6">
+            Legal
+          </span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--brand-text)] leading-tight tracking-tight mb-4">
+            Privacy Policy
+          </h1>
+          <p className="text-lg text-[var(--brand-muted)]">
+            Last updated: March 2026
+          </p>
+          <div className="mt-8 mx-auto w-24 h-0.5 bg-indigo-500/40 rounded-full" />
+        </div>
+      </section>
+
+      {/* ── Content ── */}
+      <section className="pb-20 md:pb-28">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+          {/* 1. Introduction */}
+          <div>
+            <h2 className={sectionHeading}>1. Introduction</h2>
+            <p className={`${body} mt-4`}>
+              ExAIm Limited (&ldquo;ExAIm,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is registered in England and Wales (ICO Registration Number ZB842876) and operates internationally, including Dubai, UAE, holding a valid Technology License in Dubai. ExAIm is committed to safeguarding the privacy and security of our business-to-business (B2B) clients, educational institutions (&ldquo;Institutions&rdquo;), and their administrators, teachers, and students (&ldquo;End Users&rdquo;).
             </p>
-            <p className="text-gray-700 leading-relaxed">
-              This Privacy Policy details how ExAIm collects, processes, shares, transfers, and retains personal data, outlining user rights under the UK General Data Protection Regulation (UK GDPR) and UAE Federal Decree-Law No. 45 of 2021 on Personal Data Protection ("UAE PDPL").
+            <p className={`${body} mt-4`}>
+              This Privacy Policy details how ExAIm collects, processes, shares, transfers, and retains personal data, outlining user rights under the UK General Data Protection Regulation (UK GDPR) and UAE Federal Decree-Law No. 45 of 2021 on Personal Data Protection (&ldquo;UAE PDPL&rdquo;).
             </p>
           </div>
 
-          {/* Scope of Policy */}
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">2. Scope of Policy</h2>
-            <p className="text-gray-700 leading-relaxed">
+          {/* 2. Scope of Policy */}
+          <div>
+            <h2 className={sectionHeading}>2. Scope of Policy</h2>
+            <p className={`${body} mt-4`}>
               ExAIm serves as a Data Processor on behalf of educational Institutions, who act as Data Controllers. This policy applies to all data handled by ExAIm through our platform and related services across jurisdictions in which we operate.
             </p>
           </div>
 
-          {/* Information We Collect */}
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">3. Information We Collect</h2>
-            
-            <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4 mt-6">Institutional Data:</h3>
-            <ul className="list-disc list-inside text-gray-700 leading-relaxed mb-6 space-y-2">
+          {/* 3. Information We Collect */}
+          <div>
+            <h2 className={sectionHeading}>3. Information We Collect</h2>
+
+            <h3 className={subHeading}>Institutional Data:</h3>
+            <ul className={list}>
               <li>Institution name, address, and registration number</li>
-              <li>Administrator's name, email, and telephone number</li>
+              <li>Administrator&apos;s name, email, and telephone number</li>
               <li>Billing and payment details</li>
             </ul>
 
-            <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4 mt-6">End User Data:</h3>
-            <ul className="list-disc list-inside text-gray-700 leading-relaxed space-y-2">
+            <h3 className={subHeading}>End User Data:</h3>
+            <ul className={list}>
               <li>Name, date of birth, and class assignment</li>
               <li>Assessment responses, grades, and analytical insights</li>
             </ul>
           </div>
 
-          {/* Purpose and Legal Basis */}
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">4. Purpose and Legal Basis of Data Processing</h2>
-            <p className="text-gray-700 leading-relaxed mb-6">
+          {/* 4. Purpose and Legal Basis */}
+          <div>
+            <h2 className={sectionHeading}>4. Purpose and Legal Basis of Data Processing</h2>
+            <p className={`${body} mt-4 mb-6`}>
               ExAIm processes personal data exclusively for:
             </p>
-            
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse border border-gray-300 mb-6">
+
+            <div className="overflow-x-auto rounded-xl border border-[var(--brand-border)]">
+              <table className="w-full text-sm">
                 <thead>
-                  <tr className="bg-gray-100">
-                    <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">Purpose of Processing</th>
-                    <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">Legal Basis (UK GDPR and UAE PDPL)</th>
+                  <tr className="bg-[var(--brand-surface)]">
+                    <th className="px-4 py-3 text-left font-semibold text-[var(--brand-text)] border-b border-[var(--brand-border)]">Purpose of Processing</th>
+                    <th className="px-4 py-3 text-left font-semibold text-[var(--brand-text)] border-b border-[var(--brand-border)]">Legal Basis (UK GDPR and UAE PDPL)</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="text-[var(--brand-muted)]">
+                  <tr className="border-b border-[var(--brand-border)]">
+                    <td className="px-4 py-3">Automated grading &amp; personalised feedback</td>
+                    <td className="px-4 py-3">Performance of contract (with Institution)</td>
+                  </tr>
+                  <tr className="border-b border-[var(--brand-border)] bg-[var(--brand-surface)]">
+                    <td className="px-4 py-3">Educational performance analytics</td>
+                    <td className="px-4 py-3">Performance of contract</td>
+                  </tr>
+                  <tr className="border-b border-[var(--brand-border)]">
+                    <td className="px-4 py-3">Technical support &amp; troubleshooting</td>
+                    <td className="px-4 py-3">Performance of contract</td>
+                  </tr>
+                  <tr className="border-b border-[var(--brand-border)] bg-[var(--brand-surface)]">
+                    <td className="px-4 py-3">Enhancing platform functionality &amp; developing new features</td>
+                    <td className="px-4 py-3">Legitimate interests</td>
+                  </tr>
                   <tr>
-                    <td className="border border-gray-300 px-4 py-3 text-gray-700">Automated grading & personalised feedback</td>
-                    <td className="border border-gray-300 px-4 py-3 text-gray-700">Performance of contract (with Institution)</td>
-                  </tr>
-                  <tr className="bg-gray-50">
-                    <td className="border border-gray-300 px-4 py-3 text-gray-700">Educational performance analytics</td>
-                    <td className="border border-gray-300 px-4 py-3 text-gray-700">Performance of contract</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-3 text-gray-700">Technical support & troubleshooting</td>
-                    <td className="border border-gray-300 px-4 py-3 text-gray-700">Performance of contract</td>
-                  </tr>
-                  <tr className="bg-gray-50">
-                    <td className="border border-gray-300 px-4 py-3 text-gray-700">Enhancing platform functionality & developing new features</td>
-                    <td className="border border-gray-300 px-4 py-3 text-gray-700">Legitimate interests</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-3 text-gray-700">Compliance with data protection & regulatory obligations</td>
-                    <td className="border border-gray-300 px-4 py-3 text-gray-700">Legal obligation</td>
+                    <td className="px-4 py-3">Compliance with data protection &amp; regulatory obligations</td>
+                    <td className="px-4 py-3">Legal obligation</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
 
-          {/* AI-driven Assessment Transparency */}
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">5. AI-driven Assessment Transparency</h2>
-            <p className="text-gray-700 leading-relaxed">
+          {/* 5. AI-driven Assessment Transparency */}
+          <div>
+            <h2 className={sectionHeading}>5. AI-driven Assessment Transparency</h2>
+            <p className={`${body} mt-4`}>
               ExAIm employs Artificial Intelligence (AI) to automate assessment grading, including open-ended responses. AI analyses End User responses solely to generate grades, personalised feedback, and insights. Human oversight is always provided, enabling teachers to review, verify, and modify AI-generated outcomes. Automated assessments never solely dictate academic outcomes without institutional review.
             </p>
           </div>
 
-          {/* Special Categories & Children's Data */}
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">6. Special Categories & Children's Data</h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+          {/* 6. Special Categories & Children's Data */}
+          <div>
+            <h2 className={sectionHeading}>6. Special Categories &amp; Children&apos;s Data</h2>
+            <p className={`${body} mt-4`}>
               ExAIm does not collect or process special categories of personal data (e.g., special educational needs or health information).
             </p>
-            
-            <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4 mt-6">Children's Data:</h3>
-            <p className="text-gray-700 leading-relaxed">
+
+            <h3 className={subHeading}>Children&apos;s Data:</h3>
+            <p className={body}>
               ExAIm services involve processing data of students under 18 years of age. Institutions (Data Controllers) confirm responsibility for obtaining lawful consent or ensuring alternative lawful bases (such as educational obligations or parental authorisation), complying with UK GDPR Article 8 and UAE PDPL.
             </p>
           </div>
 
-          {/* Data Sharing & International Transfers */}
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">7. Data Sharing & International Transfers</h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+          {/* 7. Data Sharing & International Transfers */}
+          <div>
+            <h2 className={sectionHeading}>7. Data Sharing &amp; International Transfers</h2>
+            <p className={`${body} mt-4`}>
               ExAIm does not sell or rent personal data. Data sharing occurs solely:
             </p>
-            <ul className="list-disc list-inside text-gray-700 leading-relaxed mb-6 space-y-2">
+            <ul className={`${list} mt-3`}>
               <li>With subprocessors compliant with GDPR and UAE PDPL for essential services (hosting, analytics, support)</li>
               <li>Upon explicit direction by Institutions (e.g., reporting to parents or authorities)</li>
               <li>To comply with legal obligations or official regulatory requests</li>
             </ul>
 
-            <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4 mt-6">Explicit Subprocessors:</h3>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              Google Cloud Platform (GCP): ExAIm maintains a formal Data Processing Agreement (DPA) with Google Cloud Platform (GCP) that incorporates appropriate safeguards, including Standard Contractual Clauses, ensuring compliance with GDPR and UAE PDPL. The complete Data Processing Addendum can be found <a href="#" className="text-primary-600 hover:text-primary-700 underline">here</a>.
+            <h3 className={subHeading}>Explicit Subprocessors:</h3>
+            <p className={body}>
+              Google Cloud Platform (GCP): ExAIm maintains a formal Data Processing Agreement (DPA) with Google Cloud Platform (GCP) that incorporates appropriate safeguards, including Standard Contractual Clauses, ensuring compliance with GDPR and UAE PDPL. The complete Data Processing Addendum can be found{' '}
+              <a href="#" className={link}>here</a>.
             </p>
 
-            <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4 mt-6">International Data Transfers:</h3>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <h3 className={subHeading}>International Data Transfers:</h3>
+            <p className={body}>
               ExAIm stores personal data on Google Cloud Platform, with data primarily hosted in the UK and/or EU. If data transfers occur outside these regions, we rely on SCCs and other appropriate safeguards.
             </p>
 
-            <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4 mt-6">Subprocessor Updates:</h3>
-            <p className="text-gray-700 leading-relaxed">
+            <h3 className={subHeading}>Subprocessor Updates:</h3>
+            <p className={body}>
               Institutions will receive email notifications at least 30 days in advance of any changes to subprocessors. An updated subprocessor list can be requested at any time.
             </p>
           </div>
 
-          {/* Data Retention Policy */}
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">8. Data Retention Policy</h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+          {/* 8. Data Retention Policy */}
+          <div>
+            <h2 className={sectionHeading}>8. Data Retention Policy</h2>
+            <p className={`${body} mt-4`}>
               Data is retained only as long as necessary for:
             </p>
-            <ul className="list-disc list-inside text-gray-700 leading-relaxed mb-4 space-y-2">
+            <ul className={`${list} mt-3`}>
               <li>Contractual obligations with Institutions</li>
               <li>Compliance with legal obligations or dispute resolution</li>
             </ul>
-            <p className="text-gray-700 leading-relaxed">
+            <p className={`${body} mt-4`}>
               After contract termination, personal data is securely deleted or returned within 60 days, per GDPR and UAE PDPL requirements.
             </p>
           </div>
 
-          {/* Data Security & Breach Notification */}
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">9. Data Security & Breach Notification</h2>
-            <p className="text-gray-700 leading-relaxed mb-6">
+          {/* 9. Data Security & Breach Notification */}
+          <div>
+            <h2 className={sectionHeading}>9. Data Security &amp; Breach Notification</h2>
+            <p className={`${body} mt-4`}>
               ExAIm implements robust technical and organisational measures to protect personal data, including but not limited to:
             </p>
 
-            <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4 mt-6">Encryption:</h3>
-            <ul className="list-disc list-inside text-gray-700 leading-relaxed mb-6 space-y-2">
+            <h3 className={subHeading}>Encryption:</h3>
+            <ul className={list}>
               <li>Data encrypted at rest using industry-standard AES-256 encryption.</li>
               <li>Data encrypted in transit using Transport Layer Security (TLS) protocols.</li>
             </ul>
 
-            <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4 mt-6">Access Controls and Authentication:</h3>
-            <ul className="list-disc list-inside text-gray-700 leading-relaxed mb-6 space-y-2">
+            <h3 className={subHeading}>Access Controls and Authentication:</h3>
+            <ul className={list}>
               <li>Strict role-based access controls (RBAC) ensure users have only necessary privileges.</li>
               <li>Secure login mechanisms, including mandatory multi-factor authentication (MFA) for administrative accounts.</li>
             </ul>
 
-            <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4 mt-6">Infrastructure Security:</h3>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <h3 className={subHeading}>Infrastructure Security:</h3>
+            <p className={body}>
               All data storage and processing infrastructure hosted exclusively on Google Cloud Platform (GCP), which maintains compliance with industry-leading standards, including:
             </p>
-            <ul className="list-disc list-inside text-gray-700 leading-relaxed mb-6 space-y-2">
+            <ul className={`${list} mt-3`}>
               <li>SOC 2 Type 2 certification</li>
               <li>ISO 27001 certification</li>
               <li>Compliance with GDPR requirements and UAE PDPL data protection standards.</li>
               <li>Regular independent audits and third-party certifications.</li>
             </ul>
 
-            <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4 mt-6">Data Encryption:</h3>
-            <ul className="list-disc list-inside text-gray-700 leading-relaxed mb-6 space-y-2">
+            <h3 className={subHeading}>Data Encryption:</h3>
+            <ul className={list}>
               <li>GCP provides encryption at rest by default using the Advanced Encryption Standard (AES-256).</li>
               <li>All data transferred to and from the platform is encrypted using Transport Layer Security (TLS) protocols.</li>
             </ul>
 
-            <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4 mt-6">System Monitoring & Breach Response:</h3>
-            <ul className="list-disc list-inside text-gray-700 leading-relaxed space-y-2">
+            <h3 className={subHeading}>System Monitoring &amp; Breach Response:</h3>
+            <ul className={list}>
               <li>Continuous security monitoring and logging enabled it to detect unusual activities.</li>
               <li>Immediate notification procedures in place for identifying and addressing potential security breaches, with notification provided to Institutions within 72 hours as required by GDPR and UAE PDPL.</li>
             </ul>
           </div>
 
-          {/* Responsibilities of Institutions */}
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">10. Responsibilities of Institutions (Data Controllers)</h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+          {/* 10. Responsibilities of Institutions */}
+          <div>
+            <h2 className={sectionHeading}>10. Responsibilities of Institutions (Data Controllers)</h2>
+            <p className={`${body} mt-4`}>
               Institutions agree to:
             </p>
-            <ul className="list-disc list-inside text-gray-700 leading-relaxed space-y-2">
-              <li>Ensure lawful collection, processing, and sharing of personal data, including lawful consent for children's data.</li>
+            <ul className={`${list} mt-3`}>
+              <li>Ensure lawful collection, processing, and sharing of personal data, including lawful consent for children&apos;s data.</li>
               <li>Inform End Users, parents, or guardians of processing practices.</li>
               <li>Comply fully with applicable local and international data protection laws.</li>
             </ul>
           </div>
 
-          {/* User Rights */}
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">11. User Rights under GDPR & UAE PDPL</h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+          {/* 11. User Rights */}
+          <div>
+            <h2 className={sectionHeading}>11. User Rights under GDPR &amp; UAE PDPL</h2>
+            <p className={`${body} mt-4`}>
               Users have specific rights regarding their personal data. These rights include the ability to:
             </p>
-            <ul className="list-disc list-inside text-gray-700 leading-relaxed mb-6 space-y-2">
+            <ul className={`${list} mt-3`}>
               <li>Access their personal data.</li>
               <li>Correct inaccurate or incomplete personal data.</li>
               <li>Request deletion of personal data when no longer necessary or processed unlawfully.</li>
@@ -254,94 +280,89 @@ function PrivacyPolicyContent() {
               <li>Request portability of their personal data in a structured, machine-readable format.</li>
             </ul>
 
-            <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4 mt-6">Exercising Your Rights:</h3>
-            <p className="text-gray-700 leading-relaxed mb-6">
+            <h3 className={subHeading}>Exercising Your Rights:</h3>
+            <p className={body}>
               End Users should direct their requests to the relevant Institution (Data Controller). ExAIm, as a Data Processor, will assist Institutions promptly, transparently, and in accordance with applicable data protection laws.
             </p>
 
-            <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4 mt-6">Right to Lodge Complaints:</h3>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <h3 className={subHeading}>Right to Lodge Complaints:</h3>
+            <p className={body}>
               Users have the right to lodge a complaint with the relevant data protection supervisory authority if they believe their rights have been infringed:
             </p>
-            
-            <div className="bg-gray-50 rounded-lg p-6 mb-4">
-              <h4 className="text-xl font-semibold text-gray-900 mb-2">For UK Users:</h4>
-              <p className="text-gray-700 mb-2">Information Commissioner's Office (ICO)</p>
-              <p className="text-gray-700 mb-2">Website: <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:text-primary-700 underline">https://ico.org.uk</a></p>
+
+            <div className={`${infoBox} mt-4`}>
+              <h4 className="text-base font-semibold text-[var(--brand-text)] mb-2">For UK Users:</h4>
+              <p className="text-[var(--brand-muted)] text-sm">Information Commissioner&apos;s Office (ICO)</p>
+              <p className="text-sm mt-1">
+                Website: <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer" className={link}>https://ico.org.uk</a>
+              </p>
             </div>
 
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h4 className="text-xl font-semibold text-gray-900 mb-2">For UAE Users:</h4>
-              <p className="text-gray-700 mb-2">Relevant Data Protection Authority under UAE Federal Decree-Law No. 45 of 2021 (UAE PDPL), typically the UAE Data Office or local Emirate data protection authorities. More information can be found via:</p>
-              <p className="text-gray-700"><a href="https://u.ae/en" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:text-primary-700 underline">https://u.ae/en</a></p>
+            <div className={`${infoBox} mt-3`}>
+              <h4 className="text-base font-semibold text-[var(--brand-text)] mb-2">For UAE Users:</h4>
+              <p className="text-[var(--brand-muted)] text-sm">
+                Relevant Data Protection Authority under UAE Federal Decree-Law No. 45 of 2021 (UAE PDPL), typically the UAE Data Office or local Emirate data protection authorities. More information can be found via:
+              </p>
+              <p className="text-sm mt-1">
+                <a href="https://u.ae/en" target="_blank" rel="noopener noreferrer" className={link}>https://u.ae/en</a>
+              </p>
             </div>
           </div>
 
-          {/* Jurisdiction and Governing Law */}
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">12. Jurisdiction and Governing Law</h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+          {/* 12. Jurisdiction and Governing Law */}
+          <div>
+            <h2 className={sectionHeading}>12. Jurisdiction and Governing Law</h2>
+            <p className={`${body} mt-4`}>
               For UK-based or international Institutions, this Privacy Policy is governed exclusively by the laws of England and Wales, with disputes subject to English courts.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className={`${body} mt-4`}>
               For UAE-based Institutions, this Privacy Policy is governed exclusively by the laws of Dubai and the UAE, with disputes subject exclusively to Dubai Courts.
             </p>
           </div>
 
-          {/* Dedicated Privacy Contact */}
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">13. Dedicated Privacy Contact</h2>
-            <p className="text-gray-700 leading-relaxed mb-6">
+          {/* 13. Dedicated Privacy Contact */}
+          <div>
+            <h2 className={sectionHeading}>13. Dedicated Privacy Contact</h2>
+            <p className={`${body} mt-4`}>
               For privacy-related inquiries, complaints, or to exercise your data protection rights under the UK GDPR or UAE PDPL, please contact our designated Data Protection Officer (DPO):
             </p>
-            
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Data Protection Officer (DPO)</h3>
-              <p className="text-gray-700 mb-2">ExAIm Limited</p>
-              <p className="text-gray-700 mb-2">2 Crossways Business Centre,</p>
-              <p className="text-gray-700 mb-2">Bicester Road, Kingswood,</p>
-              <p className="text-gray-700 mb-2">Aylesbury, HP18 0RA,</p>
-              <p className="text-gray-700 mb-4">United Kingdom</p>
-              <p className="text-gray-700">
-                Email: <a href="mailto:privacy@exaim.ai" className="text-primary-600 hover:text-primary-700 underline">privacy@exaim.ai</a>
+
+            <div className={`${infoBox} mt-4`}>
+              <h3 className="text-base font-semibold text-[var(--brand-text)] mb-3">Data Protection Officer (DPO)</h3>
+              <p className="text-[var(--brand-muted)] text-sm">ExAIm Limited</p>
+              <p className="text-[var(--brand-muted)] text-sm">2 Crossways Business Centre,</p>
+              <p className="text-[var(--brand-muted)] text-sm">Bicester Road, Kingswood,</p>
+              <p className="text-[var(--brand-muted)] text-sm">Aylesbury, HP18 0RA,</p>
+              <p className="text-[var(--brand-muted)] text-sm mb-3">United Kingdom</p>
+              <p className="text-sm">
+                Email: <a href="mailto:privacy@exaim.ai" className={link}>privacy@exaim.ai</a>
               </p>
             </div>
 
-            <p className="text-gray-700 leading-relaxed mt-6">
-              <strong>Note:</strong> Our DPO is based in the United Kingdom and manages privacy compliance and inquiries for all jurisdictions, including the UK and UAE.
+            <p className={`${body} mt-4`}>
+              <strong className="text-[var(--brand-text)]">Note:</strong> Our DPO is based in the United Kingdom and manages privacy compliance and inquiries for all jurisdictions, including the UK and UAE.
             </p>
           </div>
 
-          {/* Policy Updates */}
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">14. Policy Updates</h2>
-            <p className="text-gray-700 leading-relaxed">
+          {/* 14. Policy Updates */}
+          <div>
+            <h2 className={sectionHeading}>14. Policy Updates</h2>
+            <p className={`${body} mt-4`}>
               We regularly review and update this policy. Institutions will be notified via email at least 30 days in advance of significant changes.
             </p>
           </div>
 
           {/* Acceptance */}
-          <div className="mb-12 pt-8 border-t border-gray-200">
-            <p className="text-gray-700 leading-relaxed text-lg">
+          <div className="pt-8 border-t border-[var(--brand-border)]">
+            <p className={`${body} text-lg`}>
               By using ExAIm services, Institutions acknowledge and accept this Privacy Policy and our commitment to robust privacy and data protection standards across jurisdictions.
             </p>
           </div>
         </div>
-      </div>
-    </section>
-  )
-}
+      </section>
 
-export default function PrivacyPolicyPage() {
-  return (
-    <main className="min-h-screen bg-white">
-      <Navbar />
-      <HeroSection />
-      <div className="border-b border-gray-100 my-0"></div>
-      <PrivacyPolicyContent />
       <Footer />
+      <BackToTop />
     </main>
   )
 }
-
-

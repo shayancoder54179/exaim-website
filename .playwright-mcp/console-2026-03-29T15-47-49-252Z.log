@@ -1,0 +1,44 @@
+[     886ms] [ERROR] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <InnerScrollAndFocusHandlerOld focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="for-schools/" loading={null}>
+          <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/for-schools" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} ...>
+                  <SegmentViewNode type="page" pagePath="for-school...">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function ForSchoolsPage} serverProvidedParams={{...}}>
+                      <ForSchoolsPage params={Promise} searchParams={Promise}>
+                        <Navbar>
+                        <section>
+                        <section>
+                        <section>
+                        <section>
+                        <section>
+                        <section>
+                        <section>
+                        <Footer>
+                          <footer className="border-t b...">
+                            <div className="container-...">
+                              <div
++                               className="grid grid-cols-2 md:grid-cols-5 gap-8 lg:gap-12"
+-                               className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12"
+                              >
+                              ...
+                  ...
+                ...
+      ...
+ @ http://localhost:3001/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
