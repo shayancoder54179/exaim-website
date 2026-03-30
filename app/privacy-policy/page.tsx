@@ -46,8 +46,8 @@ export default function PrivacyPolicyPage() {
 
       {/* ── Hero ── */}
       <section className="relative pt-32 pb-12 md:pt-40 md:pb-16 overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-600/8 rounded-full blur-3xl" />
-        <div className="absolute top-20 right-1/4 w-80 h-80 bg-purple-600/6 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-indigo-600/8 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-1/4 w-52 h-52 sm:w-80 sm:h-80 bg-purple-600/6 rounded-full blur-3xl" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <span className="inline-block rounded-full bg-indigo-500/10 border border-indigo-500/20 px-4 py-1.5 text-sm font-medium text-indigo-400 mb-6">

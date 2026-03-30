@@ -77,7 +77,7 @@ export default function Navbar() {
       <div className="container-wrapper">
         <div className="flex items-center justify-between h-16 md:h-18">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-1.5">
+          <Link href="/" className="flex items-center gap-1.5 flex-shrink-0">
             <Image
               src="/logo/logo.png"
               alt="ExAIm"
@@ -89,7 +89,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -102,7 +102,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden lg:flex items-center gap-2">
             <ThemeToggle />
             <a
               href="https://portal.exaim.ai/auth/login?callbackUrl=%2Fdashboard"
@@ -114,7 +114,7 @@ export default function Navbar() {
               <button
                 ref={buttonRef}
                 onClick={handleComingSoon}
-                className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg transition-colors duration-200 cursor-pointer"
+                className="px-4 py-3 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg transition-colors duration-200 cursor-pointer"
               >
                 Get started free
               </button>
@@ -142,7 +142,7 @@ export default function Navbar() {
           <Sheet>
             <SheetTrigger asChild>
               <button
-                className="md:hidden p-2 text-brand-muted hover:text-brand-text transition-colors cursor-pointer"
+                className="lg:hidden p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-brand-muted hover:text-brand-text transition-colors cursor-pointer"
                 aria-label="Open menu"
               >
                 <Menu className="w-5 h-5" />

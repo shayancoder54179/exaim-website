@@ -60,7 +60,7 @@ export default function CurriculumSection() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`relative flex flex-col items-center gap-1 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200 ${
+              className={`relative flex flex-col items-center gap-1 px-5 py-3 min-h-[44px] rounded-lg text-sm font-medium transition-colors duration-200 ${
                 activeTab === tab.id
                   ? 'bg-indigo-600 text-white'
                   : 'bg-transparent text-brand-muted border border-brand-border hover:bg-indigo-600/10 hover:text-brand-text'

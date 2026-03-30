@@ -35,8 +35,8 @@ export default function HomePage() {
       {/* ── Hero ── */}
       <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
         {/* Background gradient orbs */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-600/8 rounded-full blur-3xl" />
-        <div className="absolute top-20 right-1/4 w-80 h-80 bg-purple-600/6 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-indigo-600/8 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-1/4 w-52 h-52 sm:w-80 sm:h-80 bg-purple-600/6 rounded-full blur-3xl" />
 
         <div className="container-wrapper relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -132,7 +132,7 @@ export default function HomePage() {
       <CurriculumSection />
 
       {/* ── Features ── */}
-      <section id="features" className="section-padding">
+      <section id="features" className="section-padding overflow-hidden">
         <div className="container-wrapper">
           <motion.div {...fadeUp} className="text-center mb-16">
             <p className="text-sm font-medium text-indigo-400 mb-2">Platform</p>

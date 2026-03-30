@@ -22,7 +22,7 @@ export default function JoinClassMockup() {
           </div>
         </div>
 
-        <button className="w-full h-9 rounded-lg bg-indigo-600 text-white text-sm font-medium cursor-default">
+        <button className="w-full h-11 rounded-lg bg-indigo-600 text-white text-sm font-medium cursor-default">
           Join Class
         </button>
 

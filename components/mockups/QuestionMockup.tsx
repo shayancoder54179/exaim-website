@@ -31,7 +31,7 @@ export default function QuestionMockup() {
       {/* Actions */}
       <div className="flex items-center justify-between">
         <span className="text-xs text-brand-muted">AI will grade your response</span>
-        <button className="px-4 py-1.5 text-xs font-medium text-white bg-indigo-600 rounded-lg cursor-pointer">
+        <button className="px-4 py-3 min-h-[44px] text-xs font-medium text-white bg-indigo-600 rounded-lg cursor-pointer">
           Submit
         </button>
       </div>

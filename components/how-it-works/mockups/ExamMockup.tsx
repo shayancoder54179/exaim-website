@@ -39,7 +39,7 @@ export default function ExamMockup() {
 
       <div className="flex items-center justify-between">
         <span className="text-xs text-brand-muted">0 / 500 words</span>
-        <button className="h-8 px-4 rounded-lg bg-indigo-600 text-white text-xs font-medium cursor-default">
+        <button className="h-11 px-4 rounded-lg bg-indigo-600 text-white text-xs font-medium cursor-default">
           Submit answer
         </button>
       </div>

@@ -129,7 +129,7 @@ export default function HowItWorksClient() {
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`relative px-5 py-2 text-sm font-medium rounded-full transition-colors duration-200 cursor-pointer ${
+                className={`relative px-5 py-2.5 min-h-[44px] text-sm font-medium rounded-full transition-colors duration-200 cursor-pointer ${
                   activeTab === tab.key ? 'text-white' : 'text-brand-muted hover:text-brand-text'
                 }`}
               >
