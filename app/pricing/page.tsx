@@ -31,7 +31,7 @@ const plans = [
       'Limited practice (3 sessions/mo)',
     ],
     cta: 'Get started',
-    ctaHref: 'https://app.exaim.com/sign-up',
+    ctaHref: '/contact',
   },
   {
     name: 'Student Pro',
@@ -50,7 +50,7 @@ const plans = [
       'Streak freeze (1/week)',
     ],
     cta: 'Start free trial',
-    ctaHref: 'https://app.exaim.com/sign-up',
+    ctaHref: '/contact',
   },
   {
     name: 'Teacher Pro',
@@ -70,7 +70,7 @@ const plans = [
       'Content moderation dashboard',
     ],
     cta: 'Start free trial',
-    ctaHref: 'https://app.exaim.com/sign-up',
+    ctaHref: '/contact',
   },
   {
     name: 'Schools',

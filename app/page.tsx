@@ -55,7 +55,7 @@ export default function HomePage() {
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
                 <a
-                  href="https://app.exaim.com/sign-up"
+                  href="/contact"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg transition-colors duration-200"
                 >
                   Start for free

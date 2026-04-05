@@ -204,7 +204,7 @@ export default function HowItWorksClient() {
               <h3 className="text-xl font-bold text-brand-text mb-2">Ready to get started?</h3>
               <p className="text-sm text-brand-muted mb-5">Create your free account in seconds.</p>
               <a
-                href="https://app.exaim.com/sign-up"
+                href="/contact"
                 className="inline-flex px-6 py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium transition-colors duration-200"
               >
                 Start for free

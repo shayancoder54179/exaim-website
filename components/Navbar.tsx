@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Menu } from 'lucide-react'
@@ -15,55 +15,17 @@ const navLinks = [
   { href: '/pricing', label: 'Pricing' },
   { href: '/blog', label: 'Blog' },
   { href: '/our-story', label: 'Our Story' },
+  { href: '/contact', label: 'Contact' },
 ]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
-  const [showPopover, setShowPopover] = useState(false)
-  const popoverRef = useRef<HTMLDivElement>(null)
-  const buttonRef = useRef<HTMLButtonElement>(null)
-
-  const handleComingSoon = () => {
-    setShowPopover((prev) => !prev)
-  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-
-  // Close popover on scroll, outside click, or Escape
-  useEffect(() => {
-    if (!showPopover) return
-
-    const close = () => setShowPopover(false)
-
-    const onClickOutside = (e: MouseEvent) => {
-      if (
-        popoverRef.current &&
-        !popoverRef.current.contains(e.target as Node) &&
-        buttonRef.current &&
-        !buttonRef.current.contains(e.target as Node)
-      ) {
-        close()
-      }
-    }
-
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') close()
-    }
-
-    window.addEventListener('scroll', close, { passive: true })
-    document.addEventListener('mousedown', onClickOutside)
-    document.addEventListener('keydown', onKeyDown)
-
-    return () => {
-      window.removeEventListener('scroll', close)
-      document.removeEventListener('mousedown', onClickOutside)
-      document.removeEventListener('keydown', onKeyDown)
-    }
-  }, [showPopover])
 
   return (
     <nav
@@ -110,32 +72,12 @@ export default function Navbar() {
             >
               Log in
             </a>
-            <div className="relative">
-              <button
-                ref={buttonRef}
-                onClick={handleComingSoon}
-                className="px-4 py-3 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg transition-colors duration-200 cursor-pointer"
-              >
-                Get started free
-              </button>
-              {showPopover && (
-                <div
-                  ref={popoverRef}
-                  className="absolute top-[calc(100%+8px)] right-0 z-[60] w-[280px] rounded-xl shadow-lg border border-brand-border bg-[var(--brand-bg)] p-4"
-                >
-                  {/* Caret */}
-                  <div className="absolute -top-2 right-6 w-4 h-4 rotate-45 border-l border-t border-brand-border bg-[var(--brand-bg)]" />
-                  <p className="relative font-medium text-sm text-brand-text">Coming soon!</p>
-                  <p className="relative text-xs text-brand-muted mt-1">
-                    Email us at{' '}
-                    <a href="mailto:contact@exaim.ai" className="text-indigo-400 hover:underline">
-                      contact@exaim.ai
-                    </a>{' '}
-                    to get early access.
-                  </p>
-                </div>
-              )}
-            </div>
+            <Link
+              href="/contact"
+              className="px-4 py-3 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg transition-colors duration-200"
+            >
+              Get started free
+            </Link>
           </div>
 
           {/* Mobile menu */}
@@ -167,24 +109,14 @@ export default function Navbar() {
                 >
                   Log in
                 </a>
-                <button
-                  onClick={handleComingSoon}
-                  className="mx-4 mt-2 px-4 py-3 text-base font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg transition-colors text-center cursor-pointer"
-                >
-                  Get started free
-                </button>
-                {showPopover && (
-                  <div className="mx-4 mt-2 p-3 rounded-lg border border-brand-border bg-[var(--brand-surface)] text-sm">
-                    <p className="font-medium text-brand-text">Coming soon!</p>
-                    <p className="text-brand-muted text-xs mt-1">
-                      Email us at{' '}
-                      <a href="mailto:contact@exaim.ai" className="text-indigo-400 hover:underline">
-                        contact@exaim.ai
-                      </a>{' '}
-                      to get early access.
-                    </p>
-                  </div>
-                )}
+                <SheetClose asChild>
+                  <Link
+                    href="/contact"
+                    className="mx-4 mt-2 px-4 py-3 text-base font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg transition-colors text-center"
+                  >
+                    Get started free
+                  </Link>
+                </SheetClose>
               </nav>
             </SheetContent>
           </Sheet>
